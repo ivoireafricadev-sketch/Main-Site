@@ -18,6 +18,14 @@
     <meta property="og:title" content="Ivoire Investment Group | Building today, investing in tomorrow">
     <meta property="og:description" content="Ivoire Investment Group is a diversified investment and services firm operating across Namibia, Zambia, Botswana, and Zimbabwe. We specialize in MRO, agriculture, distribution, construction, and hospitality.">
     <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +65,13 @@
             width: auto;
         }
 
-        .nav a {
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a,
+        .nav-trigger {
             color: #FFFFFF;
             text-decoration: none;
             margin-left: 25px;
@@ -65,10 +79,114 @@
             transition: color 0.3s ease;
         }
 
-        .nav a:hover {
+        .nav a:hover,
+        .nav-trigger:hover {
             color: #D4AF37;
         }
-        
+
+        /* --- Divisions dropdown --------------------------------------- */
+        .nav-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0;
+            background: none;
+            border: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .nav-trigger svg {
+            width: 11px;
+            height: 11px;
+            transition: transform 0.3s ease;
+        }
+
+        .has-drop {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* bridges the gap between the trigger and the panel */
+        .has-drop::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 25px;
+            width: calc(100% - 25px);
+            height: 18px;
+        }
+
+        .drop {
+            position: absolute;
+            top: calc(100% + 18px);
+            /* anchored right: this nav item sits close to the viewport edge */
+            right: 0;
+            left: auto;
+            min-width: 310px;
+            padding: 10px;
+            background: rgba(10, 10, 10, 0.98);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-top: 3px solid #D4AF37;
+            border-radius: 8px;
+            box-shadow: 0 26px 50px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+        }
+
+        .has-drop:hover .drop,
+        .has-drop:focus-within .drop,
+        .has-drop.open .drop {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .has-drop:hover .nav-trigger svg,
+        .has-drop.open .nav-trigger svg {
+            transform: rotate(180deg);
+        }
+
+        .drop a {
+            display: block;
+            margin: 0;
+            padding: 11px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: background-color 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+        }
+
+        .drop a span {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #999;
+        }
+
+        .drop a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+            padding-left: 22px;
+        }
+
+        .drop a .drop-flag {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 2px 9px;
+            border-radius: 20px;
+            background: #D4AF37;
+            color: #000;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
@@ -236,6 +354,7 @@
 
         .sector-card-6 img {
             max-height: 80px;
+            max-width: 82%;
             width: auto;
             margin-bottom: 20px;
             transition: transform 0.4s ease;
@@ -243,6 +362,42 @@
 
         .sector-card-6:hover img {
             transform: scale(1.05);
+        }
+
+        /* MRO Solutions is the one division with its own page */
+        a.sector-card-6 {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            border-color: rgba(212, 175, 55, 0.55);
+        }
+
+        a.sector-card-6:hover {
+            transform: translateY(-6px);
+            border-color: #D4AF37;
+            box-shadow: 0 18px 36px rgba(212, 175, 55, 0.14);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: #D4AF37;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .card-link svg {
+            width: 15px;
+            height: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        a.sector-card-6:hover .card-link svg {
+            transform: translateX(5px);
         }
 
         .sector-card-6 .card-content {
@@ -441,17 +596,61 @@
                 transition: 0.3s;
                 gap: 20px;
             }
-            .nav.active { 
-                left: 0; 
+            .nav.active {
+                left: 0;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
+                align-items: stretch;
+                justify-content: flex-start;
+                overflow-y: auto;
+                padding: 20px 24px 60px;
+                gap: 0;
             }
-            .nav a {
+            .nav a,
+            .nav-trigger {
                 margin: 0;
-                font-size: 24px;
+                font-size: 20px;
             }
+            .nav > a,
+            .nav-trigger {
+                width: 100%;
+                justify-content: space-between;
+                padding: 16px 4px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* dropdown collapses into an accordion */
+            .has-drop {
+                display: block;
+                width: 100%;
+            }
+            .has-drop::after { display: none; }
+
+            .drop {
+                position: static;
+                min-width: 0;
+                max-height: 0;
+                padding: 0;
+                background: none;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                overflow: hidden;
+                transition: max-height 0.35s ease, padding 0.35s ease;
+            }
+            .has-drop:hover .drop { max-height: 0; padding: 0; }
+            .has-drop.open .drop { max-height: 620px; padding: 6px 0 14px; }
+
+            .drop a {
+                font-size: 16px;
+                padding: 12px 16px;
+                border-bottom: 0;
+                color: #ddd;
+            }
+            .drop a span { font-size: 13px; }
             .hamburger {
                 display: block;
                 z-index: 1001; 
@@ -473,7 +672,22 @@
         <nav class="nav">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#sectors">Sectors</a>
+
+            <div class="has-drop">
+                <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="drop-sectors">
+                    Sectors
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="drop" id="drop-sectors">
+                    <a href="#sectors">Business Consulting<span>Strategic guidance and operational support.</span></a>
+                    <a href="mro-solutions.html">MRO Solutions<span>Fasteners, generators, PPE and lifting equipment.</span><span class="drop-flag">View division</span></a>
+                    <a href="#sectors">Livestock Management<span>Sustainable farming and food security.</span></a>
+                    <a href="#sectors">Distribution<span>Fleet management and regional distribution.</span></a>
+                    <a href="#sectors">Construction<span>Residential developments and renovations.</span></a>
+                    <a href="#sectors">Hospitality<span>Exceptional experiences in hospitality.</span></a>
+                </div>
+            </div>
+
             <a href="#presence">Presence</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -521,13 +735,20 @@
                         <p>Strategic guidance and operational support for businesses.</p>
                     </div>
                 </div>
-                <div class="sector-card-6 revealable">
-                    <img src="MRO Solutions.png" alt="MRO Solutions">
+                <a class="sector-card-6 revealable" href="mro-solutions.html">
+                    <picture>
+                        <source srcset="mro/mro-logo.webp" type="image/webp">
+                        <img src="mro/mro-logo.png" alt="Ivoire MRO Solutions">
+                    </picture>
                     <div class="card-content">
                         <h2>MRO Solutions</h2>
                         <p>Comprehensive Maintenance, Repairs and Operations solutions for mining, aviation and oil rigs.</p>
+                        <span class="card-link">
+                            Explore MRO Solutions
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
                     </div>
-                </div>
+                </a>
                 <div class="sector-card-6 revealable">
                     <img src="Livestock Farming.png" alt="Livestock Management">
                     <div class="card-content">
@@ -600,7 +821,39 @@
       document.querySelectorAll(".nav a").forEach(n => n.addEventListener("click", () => {
           hamburger.classList.remove("active");
           navMenu.classList.remove("active");
+          document.querySelectorAll(".has-drop").forEach(d => d.classList.remove("open"));
       }))
+
+      /* Divisions dropdown - click to toggle so it works on touch and keyboard */
+      document.querySelectorAll(".has-drop").forEach(wrap => {
+          const trigger = wrap.querySelector(".nav-trigger");
+          trigger.addEventListener("click", e => {
+              e.stopPropagation();
+              const open = !wrap.classList.contains("open");
+              document.querySelectorAll(".has-drop").forEach(other => {
+                  other.classList.remove("open");
+                  other.querySelector(".nav-trigger").setAttribute("aria-expanded", "false");
+              });
+              wrap.classList.toggle("open", open);
+              trigger.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+      });
+
+      document.addEventListener("click", e => {
+          if (e.target.closest(".has-drop")) return;
+          document.querySelectorAll(".has-drop").forEach(wrap => {
+              wrap.classList.remove("open");
+              wrap.querySelector(".nav-trigger").setAttribute("aria-expanded", "false");
+          });
+      });
+
+      document.addEventListener("keydown", e => {
+          if (e.key !== "Escape") return;
+          document.querySelectorAll(".has-drop.open").forEach(wrap => {
+              wrap.classList.remove("open");
+              wrap.querySelector(".nav-trigger").setAttribute("aria-expanded", "false");
+          });
+      });
 
       const revealables = document.querySelectorAll('.revealable');
       const observer = new IntersectionObserver((entries) => {

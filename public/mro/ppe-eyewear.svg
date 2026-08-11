@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Safety eyewear and hearing protection">
+<title>Safety eyewear and hearing protection</title>
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4e9ee"/><stop offset=".5" stop-color="#aab6c2"/><stop offset="1" stop-color="#7d8b99"/></linearGradient>
+<linearGradient id="steel2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93a0ad"/><stop offset=".45" stop-color="#dfe5eb"/><stop offset="1" stop-color="#8593a1"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7fe0"/><stop offset=".55" stop-color="#1656b4"/><stop offset="1" stop-color="#0e3d86"/></linearGradient>
+<linearGradient id="hiviz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb02e"/><stop offset="1" stop-color="#ef7d10"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe089"/><stop offset=".5" stop-color="#f7c53e"/><stop offset="1" stop-color="#d19b12"/></linearGradient>
+<radialGradient id="shadow"><stop offset="0" stop-color="#0d1f33" stop-opacity=".26"/><stop offset="1" stop-color="#0d1f33" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="300" cy="372" rx="178" ry="26" fill="url(#shadow)"/>
+<g transform="translate(0,-40)">
+<path d="M144 214q0-38 40-44 62-10 116-10t116 10q40 6 40 44 0 40-42 44-46 4-70-22-16-18-44-18t-44 18q-24 26-70 22-42-4-42-44z" fill="url(#steel)"/>
+<path d="M154 212q0-28 32-33 58-9 114-9t114 9q32 5 32 33 0 30-34 33-40 4-60-19-18-20-52-20t-52 20q-20 23-60 19-34-3-34-33z" fill="#1d3f66" opacity=".8"/>
+<path d="M170 200q0-14 20-18 52-8 110-8t110 8q20 4 20 18-32-10-130-10t-130 10z" fill="#cfe2f7" opacity=".5"/>
+<rect x="118" y="192" width="36" height="26" rx="10" fill="#f7c53e"/>
+<rect x="446" y="192" width="36" height="26" rx="10" fill="#f7c53e"/>
+</g>
+<g transform="translate(0,50)">
+<path d="M188 296q0-64 112-64t112 64" stroke="#20303f" stroke-width="20" fill="none" stroke-linecap="round"/>
+<rect x="140" y="276" width="76" height="84" rx="22" fill="#e0480f"/>
+<rect x="152" y="290" width="52" height="56" rx="16" fill="#20303f" opacity=".6"/>
+<rect x="384" y="276" width="76" height="84" rx="22" fill="#e0480f"/>
+<rect x="396" y="290" width="52" height="56" rx="16" fill="#20303f" opacity=".6"/>
+</g>
+</svg>

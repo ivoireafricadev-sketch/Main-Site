@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Lever hoist and chain block">
+<title>Lever hoist and chain block</title>
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4e9ee"/><stop offset=".5" stop-color="#aab6c2"/><stop offset="1" stop-color="#7d8b99"/></linearGradient>
+<linearGradient id="steel2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93a0ad"/><stop offset=".45" stop-color="#dfe5eb"/><stop offset="1" stop-color="#8593a1"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7fe0"/><stop offset=".55" stop-color="#1656b4"/><stop offset="1" stop-color="#0e3d86"/></linearGradient>
+<linearGradient id="hiviz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb02e"/><stop offset="1" stop-color="#ef7d10"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe089"/><stop offset=".5" stop-color="#f7c53e"/><stop offset="1" stop-color="#d19b12"/></linearGradient>
+<radialGradient id="shadow"><stop offset="0" stop-color="#0d1f33" stop-opacity=".26"/><stop offset="1" stop-color="#0d1f33" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="300" cy="372" rx="178" ry="26" fill="url(#shadow)"/>
+<path d="M300 104q-28 0-28 24t28 24 28-24-28-24z" fill="none" stroke="url(#steel2)" stroke-width="18"/>
+<rect x="216" y="150" width="168" height="130" rx="18" fill="url(#steel)"/>
+<rect x="216" y="150" width="168" height="42" rx="18" fill="#dfe5eb" opacity=".55"/>
+<rect x="378" y="196" width="150" height="30" rx="14" fill="url(#gold)"/>
+<rect x="492" y="188" width="46" height="46" rx="14" fill="#20303f"/>
+<circle cx="300" cy="216" r="44" fill="#59687a"/>
+<circle cx="300" cy="216" r="26" fill="url(#steel2)"/>
+<circle cx="300" cy="216" r="9" fill="#59687a"/>
+<g fill="none" stroke="url(#steel2)" stroke-width="13">
+<ellipse cx="300" cy="298" rx="11" ry="17"/><ellipse cx="300" cy="326" rx="17" ry="11"/>
+</g>
+<g transform="translate(300,354)">
+<path d="M0-14q-26 0-26 28 0 40 38 40 26 0 26-26 0-18-16-23" fill="none" stroke="url(#steel2)" stroke-width="20" stroke-linecap="round"/>
+</g>
+</svg>

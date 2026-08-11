@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="High visibility safety vest">
+<title>High visibility safety vest</title>
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4e9ee"/><stop offset=".5" stop-color="#aab6c2"/><stop offset="1" stop-color="#7d8b99"/></linearGradient>
+<linearGradient id="steel2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93a0ad"/><stop offset=".45" stop-color="#dfe5eb"/><stop offset="1" stop-color="#8593a1"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7fe0"/><stop offset=".55" stop-color="#1656b4"/><stop offset="1" stop-color="#0e3d86"/></linearGradient>
+<linearGradient id="hiviz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb02e"/><stop offset="1" stop-color="#ef7d10"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe089"/><stop offset=".5" stop-color="#f7c53e"/><stop offset="1" stop-color="#d19b12"/></linearGradient>
+<radialGradient id="shadow"><stop offset="0" stop-color="#0d1f33" stop-opacity=".26"/><stop offset="1" stop-color="#0d1f33" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="300" cy="372" rx="178" ry="26" fill="url(#shadow)"/>
+<path d="M196 132q34-22 66-26 12 30 38 30t38-30q32 4 66 26 14 10 14 26v170q0 14-14 14h-88V132h-32v210h-88q-14 0-14-14V158q0-16 14-26z" fill="url(#hiviz)"/>
+<path d="M196 132q34-22 66-26 12 30 38 30v206h-88q-14 0-14-14V158q0-16 14-26z" fill="#ffbe52" opacity=".4"/>
+<path d="M262 106q12 30 38 30t38-30l-12-6q-10 20-26 20t-26-20z" fill="#c96a0c"/>
+<path d="M182 176q30 26 30 76t-30 76" fill="none" stroke="#c96a0c" stroke-width="7" opacity=".45"/>
+<path d="M418 176q-30 26-30 76t30 76" fill="none" stroke="#c96a0c" stroke-width="7" opacity=".45"/>
+<g fill="#e6edf3">
+<rect x="182" y="216" width="236" height="26"/><rect x="182" y="286" width="236" height="26"/>
+</g>
+<g fill="#f7fafc">
+<rect x="182" y="216" width="236" height="8"/><rect x="182" y="286" width="236" height="8"/>
+</g>
+<path d="M246 140v202M354 140v202" stroke="#e6edf3" stroke-width="24" fill="none"/>
+<path d="M246 140v202M354 140v202" stroke="#c4cfd9" stroke-width="6" fill="none" opacity=".55"/>
+<rect x="284" y="136" width="32" height="206" fill="#d97710"/>
+<rect x="296" y="136" width="8" height="206" fill="#a85a08"/>
+</svg>

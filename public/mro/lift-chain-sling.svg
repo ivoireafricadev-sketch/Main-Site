@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Two leg chain sling with master link">
+<title>Two leg chain sling with master link</title>
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4e9ee"/><stop offset=".5" stop-color="#aab6c2"/><stop offset="1" stop-color="#7d8b99"/></linearGradient>
+<linearGradient id="steel2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93a0ad"/><stop offset=".45" stop-color="#dfe5eb"/><stop offset="1" stop-color="#8593a1"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7fe0"/><stop offset=".55" stop-color="#1656b4"/><stop offset="1" stop-color="#0e3d86"/></linearGradient>
+<linearGradient id="hiviz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb02e"/><stop offset="1" stop-color="#ef7d10"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe089"/><stop offset=".5" stop-color="#f7c53e"/><stop offset="1" stop-color="#d19b12"/></linearGradient>
+<radialGradient id="shadow"><stop offset="0" stop-color="#0d1f33" stop-opacity=".26"/><stop offset="1" stop-color="#0d1f33" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="300" cy="372" rx="178" ry="26" fill="url(#shadow)"/>
+<ellipse cx="300" cy="90" rx="34" ry="46" fill="none" stroke="url(#steel2)" stroke-width="22"/>
+<g fill="none" stroke="url(#steel2)" stroke-width="15">
+<ellipse cx="232" cy="158" rx="13" ry="20"/><ellipse cx="232" cy="188" rx="20" ry="13"/><ellipse cx="232" cy="218" rx="13" ry="20"/><ellipse cx="232" cy="248" rx="20" ry="13"/><ellipse cx="232" cy="278" rx="13" ry="20"/>
+<ellipse cx="368" cy="158" rx="13" ry="20"/><ellipse cx="368" cy="188" rx="20" ry="13"/><ellipse cx="368" cy="218" rx="13" ry="20"/><ellipse cx="368" cy="248" rx="20" ry="13"/><ellipse cx="368" cy="278" rx="13" ry="20"/>
+</g>
+<rect x="262" y="126" width="76" height="26" rx="8" fill="url(#gold)"/>
+<g transform="translate(232,302)">
+<path d="M0-14q-30 0-30 32 0 46 44 46 30 0 30-30 0-20-18-26" fill="none" stroke="url(#steel2)" stroke-width="22" stroke-linecap="round"/>
+<rect x="-14" y="-28" width="28" height="20" rx="6" fill="#8593a1"/>
+</g>
+<g transform="translate(368,302)">
+<path d="M0-14q30 0 30 32 0 46-44 46-30 0-30-30 0-20 18-26" fill="none" stroke="url(#steel2)" stroke-width="22" stroke-linecap="round"/>
+<rect x="-14" y="-28" width="28" height="20" rx="6" fill="#8593a1"/>
+</g>
+</svg>
