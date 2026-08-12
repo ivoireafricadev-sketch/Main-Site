@@ -322,57 +322,6 @@
 
         .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-        /* product band, lifted from the signboard artwork */
-        .product-band {
-            position: relative;
-            margin: 40px 0 0;
-            padding: 26px 30px 22px;
-            background: #fff;
-            border: 4px solid var(--gold);
-            border-radius: 10px;
-            max-width: 760px;
-        }
-
-        .product-band .band-label {
-            position: absolute;
-            top: -15px;
-            left: 28px;
-            padding: 4px 18px;
-            background: var(--gold);
-            border-radius: 4px;
-            color: var(--navy);
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .product-band ul {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 14px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .product-band li {
-            color: #111;
-            font-size: clamp(0.92rem, 1.7vw, 1.32rem);
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            text-transform: uppercase;
-        }
-
-        .product-band li::after {
-            content: '•';
-            margin-left: 14px;
-            color: var(--gold);
-        }
-
-        .product-band li:last-child::after { content: ''; margin: 0; }
-
         .hero-figure { position: relative; text-align: center; }
 
         .hero-figure img {
@@ -406,7 +355,7 @@
 
         .trust ul {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 0;
             list-style: none;
             margin: 0;
@@ -445,12 +394,9 @@
         /* ------------------------------------------------------ overview */
         #overview { background: #fff; }
 
-        .overview-grid {
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 56px;
-            align-items: start;
-        }
+        /* single column since the products list was removed - hold the measure
+           so the prose does not run the full page width */
+        .overview-grid { max-width: 78ch; }
 
         .overview-grid p { margin: 0 0 20px; color: var(--muted); font-weight: 300; }
 
@@ -460,31 +406,6 @@
             color: var(--ink);
             font-weight: 500;
         }
-
-        .typical {
-            padding: 34px;
-            background: var(--paper);
-            border: 1px solid var(--paper-edge);
-            border-radius: 12px;
-        }
-
-        .typical h3 { font-size: 0.95rem; letter-spacing: 0.08em; margin-bottom: 20px; }
-
-        .typical ul { list-style: none; margin: 0; padding: 0; }
-
-        .typical li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 11px 0;
-            border-bottom: 1px solid var(--paper-edge);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .typical li:last-child { border-bottom: 0; }
-
-        .typical li svg { width: 17px; height: 17px; margin-top: 4px; color: var(--blue); flex: none; }
 
         /* ------------------------------------------------------ products */
         #products { background: var(--paper); }
@@ -509,16 +430,25 @@
 
         .category-copy { padding: 48px 46px; }
 
-        .category-index {
-            display: inline-block;
-            margin-bottom: 16px;
-            color: var(--gold-deep);
-            font-size: 0.74rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-        }
+        /* the service category carries no product photography */
+        .category-top.no-feature { grid-template-columns: 1fr; }
+        .category-top.no-feature .category-copy { max-width: 90ch; }
 
         .category-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); margin-bottom: 18px; }
+
+        /* the fifth category is a service, not a product line */
+        .service-tag {
+            display: inline-block;
+            margin: 0 0 14px;
+            padding: 5px 14px;
+            background: rgba(16, 91, 192, .1);
+            border-radius: 40px;
+            color: var(--blue);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
 
         .category-copy > p {
             margin: 0 0 24px;
@@ -664,7 +594,7 @@
         /* Bobo callout ----------------------------------------------- */
         .bobo-tip {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 18px;
             margin: 0 46px 34px;
             padding: 18px 24px 18px 18px;
@@ -676,97 +606,22 @@
         .bobo-tip img { width: 62px; flex: none; }
 
         .bobo-tip p { margin: 0; font-size: 0.86rem; font-weight: 400; color: var(--navy); }
-        .bobo-tip strong { display: block; font-weight: 800; letter-spacing: .02em; }
+        .bobo-tip strong { display: block; font-weight: 800; letter-spacing: .02em; color: var(--navy); }
 
-        /* ----------------------------------------------------- industries */
-        #industries { background: #fff; }
-
-        .industry-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+        .bobo-list {
+            margin: 12px 0 14px;
+            padding-left: 20px;
+            columns: 2;
+            column-gap: 34px;
+            color: var(--navy);
+            font-size: 0.86rem;
         }
 
-        .industry-card {
-            padding: 30px 26px;
-            background: var(--paper);
-            border: 1px solid var(--paper-edge);
-            border-top: 4px solid var(--blue);
-            border-radius: 10px;
-            transition: transform .3s ease, box-shadow .3s ease;
+        .bobo-list li { margin-bottom: 5px; break-inside: avoid; }
+
+        @media (max-width: 600px) {
+            .bobo-list { columns: 1; }
         }
-
-        .industry-card:hover { transform: translateY(-6px); box-shadow: 0 18px 34px rgba(13, 31, 51, .1); }
-
-        .industry-card h3 { font-size: 0.94rem; margin-bottom: 14px; color: var(--navy); }
-
-        .industry-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.84rem; font-weight: 300; }
-
-        .industry-card li { margin-bottom: 5px; }
-
-        /* -------------------------------------------------------- region */
-        #region { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
-
-        #region::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('mro/hex-texture.jpg');
-            background-size: cover;
-            opacity: .08;
-            mix-blend-mode: screen;
-        }
-
-        #region .shell { position: relative; z-index: 2; }
-
-        .region-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-
-        .region-grid p { color: rgba(255, 255, 255, .78); font-weight: 300; }
-
-        .market-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; }
-
-        .market-list li {
-            padding: 18px 22px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .13);
-            border-left: 4px solid var(--gold);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .expansion {
-            padding: 34px;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .14);
-            border-radius: 12px;
-        }
-
-        .expansion h3 { font-size: 1.05rem; color: var(--gold); margin-bottom: 16px; }
-
-        .expansion ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-
-        .expansion li {
-            padding: 7px 14px;
-            background: rgba(255, 255, 255, .08);
-            border-radius: 40px;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-
-        .pms {
-            margin-top: 34px;
-            padding: 28px 32px;
-            background: rgba(16, 91, 192, .18);
-            border: 1px solid rgba(47, 127, 224, .35);
-            border-radius: 12px;
-        }
-
-        .pms h3 { font-size: 0.95rem; color: #fff; margin-bottom: 12px; }
-        .pms p { margin: 0 0 14px; font-size: 0.88rem; }
-        .pms ul { margin: 0; padding-left: 20px; color: rgba(255, 255, 255, .78); font-size: 0.85rem; font-weight: 300; }
 
         /* ------------------------------------------------------- contact */
         #contact { background: var(--paper); }
@@ -821,21 +676,42 @@
         .contact-lines a:hover { color: var(--blue); text-decoration: underline; }
         .contact-lines .label { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
-        .contact-note {
-            margin-top: 34px;
-            padding: 26px 32px;
-            background: var(--navy);
-            border-radius: 12px;
-            color: rgba(255, 255, 255, .85);
+        /* walk-in store, shown alongside the country enquiry cards */
+        .store {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 22px;
+            gap: 26px;
+            margin-top: 34px;
+            padding: 34px 38px;
+            background: #fff;
+            border: 1px solid var(--paper-edge);
+            border-left: 5px solid var(--gold);
+            border-radius: 14px;
         }
 
-        .contact-note p { margin: 0; font-size: 0.9rem; font-weight: 300; max-width: 70ch; }
-        .contact-note strong { color: var(--gold); font-weight: 700; }
+        .store .eyebrow { margin-bottom: 10px; }
+
+        .store h3 {
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .store-lines { list-style: none; margin: 0; padding: 0; }
+
+        .store-lines li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        .store-lines svg { width: 19px; height: 19px; margin-top: 4px; color: var(--gold-deep); flex: none; }
 
         /* -------------------------------------------------------- footer */
         .site-footer { background: var(--navy-deep); color: rgba(255, 255, 255, .6); padding: 54px 0 34px; }
@@ -897,10 +773,6 @@
         .gallery-grid .revealable:nth-child(7) { transition-delay: 420ms; }
         .gallery-grid .revealable:nth-child(8) { transition-delay: 480ms; }
 
-        .industry-grid .revealable:nth-child(2) { transition-delay: 90ms; }
-        .industry-grid .revealable:nth-child(3) { transition-delay: 180ms; }
-        .industry-grid .revealable:nth-child(4) { transition-delay: 270ms; }
-        .industry-grid .revealable:nth-child(5) { transition-delay: 360ms; }
 
         .contact-grid .revealable:nth-child(2) { transition-delay: 120ms; }
         .contact-grid .revealable:nth-child(3) { transition-delay: 240ms; }
@@ -914,17 +786,11 @@
         /* --------------------------------------------------- responsive */
         @media (max-width: 1180px) {
             .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-            .industry-grid { grid-template-columns: repeat(3, 1fr); }
-            .trust ul { grid-template-columns: repeat(2, 1fr); }
-            .trust li:nth-child(3) { border-left: 0; }
-            .trust li:nth-child(3), .trust li:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, .09); }
         }
 
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
             .hero-figure { display: none; }
-            .overview-grid,
-            .region-grid { grid-template-columns: 1fr; gap: 40px; }
             .category-top { grid-template-columns: 1fr; }
             .category-feature { min-height: 260px; order: -1; }
             .category-feature.contain { border-left: 0; border-bottom: 1px solid var(--paper-edge); }
@@ -1002,15 +868,11 @@
             .category-copy { padding-top: 36px; padding-bottom: 32px; }
             .bobo-tip { margin-left: 26px; margin-right: 26px; }
             .category-foot { padding: 24px 26px; }
-            .industry-grid { grid-template-columns: repeat(2, 1fr); }
-            .market-list { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
             .hero-inner { padding: 48px 24px 56px; }
-            .product-band { padding: 22px 20px 18px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .industry-grid { grid-template-columns: 1fr; }
             .trust ul { grid-template-columns: 1fr; }
             .trust li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .09); }
             .trust li:first-child { border-top: 0; }
@@ -1043,11 +905,10 @@
                     <a href="#generators">Industrial Generators<span>Diesel gensets for remote and standby power</span></a>
                     <a href="#ppe">Personal Protective Equipment<span>Head-to-toe protection for site crews</span></a>
                     <a href="#lifting">Lifting &amp; Lashing Equipment<span>Slings, shackles, hoists and load restraint</span></a>
+                    <a href="#metallurgical">Metallurgical Testing<span>Testing, laboratory solutions and process optimisation</span></a>
                 </div>
             </div>
 
-            <a href="#industries">Industries</a>
-            <a href="#region">Regional Supply</a>
             <a href="#contact">Contact</a>
             <a href="index.html">Ivoire Group</a>
             <a class="btn btn-gold header-cta" href="#contact">Shop Now</a>
@@ -1078,13 +939,6 @@
                     </a>
                     <a class="btn btn-ghost" href="#products">Explore our range</a>
                 </div>
-
-                <div class="product-band">
-                    <span class="band-label">Our Products</span>
-                    <ul>
-                        <li>Bolts</li><li>Nuts</li><li>Washers</li><li>Anchors</li><li>Threaded Rods</li>
-                    </ul>
-                </div>
             </div>
 
             <div class="hero-figure">
@@ -1103,9 +957,8 @@
     <div class="trust">
         <ul>
             <li><strong>4</strong> Markets supplied across Southern Africa</li>
-            <li><strong>Direct</strong> Factory sourcing from international manufacturers</li>
-            <li><strong>4</strong> Product categories under one supply partner</li>
-            <li><strong>Enquiry</strong> Based supply &mdash; every quotation built to your specification</li>
+            <li><strong>Partnerships</strong> Through our exclusive agreements with leasing manufacturers, we supply industrial-grade products</li>
+            <li><strong>Enquiry-base</strong> Every quotation built to your specification</li>
         </ul>
     </div>
 
@@ -1114,7 +967,6 @@
         <div class="shell">
             <div class="section-head revealable">
                 <div class="rule"></div>
-                <p class="eyebrow on-light">Introduction</p>
                 <h2>Understanding MRO &mdash; Maintenance, Repair &amp; Operations</h2>
             </div>
 
@@ -1126,30 +978,17 @@
                         operational downtime.</p>
 
                     <p>Industrial operations depend on reliable supply chains to maintain productivity,
-                        equipment performance and operational safety. Our focus is to connect trusted
-                        international manufacturers with industrial operations across Southern Africa, ensuring
-                        access to critical MRO equipment and components.</p>
+                        equipment performance and operational safety. Through our Partnerships we are able to
+                        service industrial operations across Southern Africa, ensuring access to critical MRO
+                        equipment and components.</p>
 
-                    <p>Through direct factory sourcing we maintain close alignment with manufacturing processes
-                        and quality standards. Our manufacturing partners provide technical expertise,
-                        engineering specifications, quality control processes and scalable production capacity
-                        &mdash; which ensures a reliable supply of high-strength fastening systems for industrial
-                        and structural applications.</p>
+                    <p>Our manufacturing partners provide technical expertise, engineering specifications,
+                        quality control processes and scalable production capacity &mdash; which ensures a
+                        reliable supply of high-strength fastening systems for industrial and structural
+                        applications.</p>
 
                     <p class="strong-note">Reliable MRO supply ensures continuous operations and reduced
                         equipment downtime.</p>
-                </div>
-
-                <div class="typical revealable">
-                    <h3>Typical MRO Products</h3>
-                    <ul>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Industrial generators</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Fasteners and structural components</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Bearings</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Lubricants and grease</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Filters</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Industrial hoses and fittings</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -1160,24 +999,21 @@
         <div class="shell">
             <div class="section-head revealable">
                 <div class="rule"></div>
-                <p class="eyebrow on-light">Our Offering</p>
-                <h2>Four Categories, One Supply Partner</h2>
+                <h2>Four categories supplied across southern africa</h2>
                 <p class="lede">Every line below is supplied on an enquiry basis. Send us the specification
                     and quantity and our team will come back to you with availability, lead time and a
-                    written quotation.</p>
+                    quotation.</p>
             </div>
 
             <!-- ------------------------------------------------ FASTENERS -->
             <article class="category revealable" id="fasteners">
                 <div class="category-top">
                     <div class="category-copy">
-                        <span class="category-index">Category 01</span>
                         <h3>Fasteners</h3>
-                        <p>Through our exclusive agreements with leading manufacturers, we supply
-                            industrial-grade fasteners ensuring durability, quality and competitive
-                            factory-level sourcing. These products are designed for heavy-duty industrial
-                            and structural applications &mdash; from mining equipment assembly and conveyor
-                            structures through to structural steel installations and bridge construction.</p>
+                        <p>We supply industrial-grade fasteners ensuring durability and quality. These
+                            products are designed for heavy-duty industrial and structural applications,
+                            from mining equipment assembly and conveyor structures through to structural
+                            steel installations, railings and bridge construction.</p>
 
                         <p class="range-title">Product range includes</p>
                         <ul class="chips">
@@ -1209,9 +1045,18 @@
                         <source srcset="mro/bobo.webp" type="image/webp">
                         <img src="mro/bobo.png" alt="" aria-hidden="true" loading="lazy">
                     </picture>
-                    <p><strong>Bobo&rsquo;s tip &mdash; six details describe a fastener</strong>
-                        Item or drawing &middot; diameter &times; length &middot; thread or pitch &middot; grade
-                        &middot; finish &middot; quantity. Send those with your enquiry and we can quote straight away.</p>
+                    <div>
+                        <strong>Bobo&rsquo;s tip &mdash; six details describe a fastener</strong>
+                        <ol class="bobo-list">
+                            <li>Item or drawing</li>
+                            <li>Diameter &times; length</li>
+                            <li>Thread or pitch</li>
+                            <li>Grade</li>
+                            <li>Finish</li>
+                            <li>Quantity</li>
+                        </ol>
+                        <p>Send those with your enquiry and we can quote straight away.</p>
+                    </div>
                 </div>
 
                 <div class="gallery">
@@ -1240,14 +1085,13 @@
             <article class="category revealable" id="generators">
                 <div class="category-top">
                     <div class="category-copy">
-                        <span class="category-index">Category 02</span>
                         <h3>Industrial Generators</h3>
                         <p>We supply industrial diesel generators sourced from trusted international
                             manufacturing partners and designed for demanding environments. Generators provide
                             reliable power solutions where grid power is limited or unavailable &mdash; keeping
                             remote sites, processing plants and construction projects running.</p>
 
-                        <p class="range-title">Key focus</p>
+                        <p class="range-title">Product range includes</p>
                         <ul class="chips">
                             <li>Industrial grade generators</li>
                             <li>Factory sourcing from international manufacturers</li>
@@ -1286,7 +1130,6 @@
             <article class="category revealable" id="ppe">
                 <div class="category-top">
                     <div class="category-copy">
-                        <span class="category-index">Category 03</span>
                         <h3>Personal Protective Equipment</h3>
                         <p>Personal Protective Equipment is the last line of defence on any industrial site,
                             and it only works when it is available, correctly specified and consistently
@@ -1340,7 +1183,6 @@
             <article class="category revealable" id="lifting">
                 <div class="category-top">
                     <div class="category-copy">
-                        <span class="category-index">Category 04</span>
                         <h3>Lifting &amp; Lashing Equipment</h3>
                         <p>Lifting and lashing gear carries the load twice &mdash; once when it is rigged and
                             again every kilometre it travels. We supply lifting equipment and load-restraint
@@ -1388,105 +1230,40 @@
                     <a class="btn btn-gold" href="#contact">Enquire</a>
                 </div>
             </article>
-        </div>
-    </section>
 
-    <!-- ====================================================== INDUSTRIES -->
-    <section id="industries">
-        <div class="shell">
-            <div class="section-head revealable">
-                <div class="rule"></div>
-                <p class="eyebrow on-light">Who We Supply</p>
-                <h2>Industries &amp; Sectors Served</h2>
-                <p class="lede">Our industrial supply solutions support operations right across the
-                    region&rsquo;s productive economy.</p>
-            </div>
-
-            <div class="industry-grid">
-                <div class="industry-card revealable">
-                    <h3>Mining</h3>
-                    <ul><li>Equipment assembly</li><li>Processing plants</li><li>Structural installations</li></ul>
-                </div>
-                <div class="industry-card revealable">
-                    <h3>Construction &amp; Infrastructure</h3>
-                    <ul><li>Structural steel buildings</li><li>Bridges and heavy foundations</li></ul>
-                </div>
-                <div class="industry-card revealable">
-                    <h3>Energy &amp; Power</h3>
-                    <ul><li>Power plants</li><li>Generator installations</li><li>Transmission towers</li></ul>
-                </div>
-                <div class="industry-card revealable">
-                    <h3>Manufacturing</h3>
-                    <ul><li>Industrial machinery</li><li>Production plants</li></ul>
-                </div>
-                <div class="industry-card revealable">
-                    <h3>Transport &amp; Logistics</h3>
-                    <ul><li>Rail infrastructure</li><li>Ports and heavy equipment</li></ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================================== REGION -->
-    <section id="region">
-        <div class="shell">
-            <div class="section-head revealable">
-                <div class="rule"></div>
-                <p class="eyebrow">Regional Supply</p>
-                <h2>A Supply Network Built for Southern Africa</h2>
-            </div>
-
-            <div class="region-grid">
-                <div class="revealable">
-                    <p>We operate a reliable industrial supply network across Southern Africa. By connecting
-                        manufacturers, suppliers and industrial clients throughout the region, we strengthen the
-                        industrial supply chain &mdash; delivering dependable solutions that support mining,
-                        construction and infrastructure development.</p>
-
-                    <ul class="market-list">
-                        <li>Namibia</li><li>Zimbabwe</li><li>Zambia</li><li>Botswana</li>
-                    </ul>
-
-                    <div class="pms">
+            <!-- ------------------------------------------- METALLURGICAL -->
+            <article class="category revealable" id="metallurgical">
+                <div class="category-top no-feature">
+                    <div class="category-copy">
+                        <p class="service-tag">Service</p>
                         <h3>Metallurgical Testing &amp; Process Optimisation</h3>
                         <p>Through our partnership with Progress Metallurgical Services (PMS), we provide
-                            specialised metallurgical testing, laboratory solutions and performance chemicals to
-                            support improved mineral recovery and operational efficiency.</p>
-                        <ul>
+                            specialised metallurgical testing, laboratory solutions and performance chemicals
+                            to support improved mineral recovery and operational efficiency.</p>
+
+                        <p class="range-title">Service range includes</p>
+                        <ul class="chips">
                             <li>Metallurgical testing and pilot plant services</li>
                             <li>Reagents, chemicals, and process optimisation</li>
                             <li>Laboratory equipment and modular laboratories</li>
                         </ul>
+
+                        <a class="btn btn-navy" href="#contact">
+                            Shop Now
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="revealable">
-                    <div class="expansion">
-                        <h3>Future MRO Expansion</h3>
-                        <p style="color:rgba(255,255,255,.78);font-weight:300;margin:0 0 20px;">As part of our
-                            growth strategy we aim to expand our MRO product portfolio to further support mining
-                            and industrial maintenance operations. Future product categories include:</p>
-                        <ul>
-                            <li>Hydraulic filters</li>
-                            <li>Fuel filters</li>
-                            <li>Air filters</li>
-                            <li>Bearings</li>
-                            <li>Industrial lubricants &amp; grease</li>
-                            <li>Industrial hoses and fittings</li>
-                        </ul>
-                    </div>
-
-                    <div class="expansion" style="margin-top:24px;">
-                        <h3>Industrial Partnerships</h3>
-                        <p style="color:rgba(255,255,255,.78);font-weight:300;margin:0;">We work with
-                            manufacturers, suppliers and industrial partners to deliver reliable equipment and
-                            MRO supply solutions &mdash; maintaining close alignment with manufacturing processes,
-                            engineering specifications and quality control standards.</p>
-                    </div>
+                <div class="category-foot">
+                    <p><strong>Applications:</strong> mineral recovery programmes, plant process optimisation,
+                        and laboratory capability for mining and processing operations.</p>
+                    <a class="btn btn-gold" href="#contact">Enquire</a>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
+
 
     <!-- ========================================================= CONTACT -->
     <section id="contact">
@@ -1497,7 +1274,7 @@
                 <h2>Talk to Our Team</h2>
                 <p class="lede">Ivoire MRO Solutions is an enquiry-based supplier. Tell us what you need and
                     the quantity, and the team in your country will come back to you with availability, lead
-                    time and a written quotation.</p>
+                    time and a quotation.</p>
             </div>
 
             <div class="contact-grid">
@@ -1577,12 +1354,18 @@
                 </div>
             </div>
 
-            <div class="contact-note revealable">
-                <p><strong>Please note:</strong> Ivoire MRO Solutions operates on an enquiry basis and does not
-                    publish pricing online. Every quotation is prepared against your specification, quantity and
-                    delivery point. Zimbabwe is served through our regional supply network &mdash;
-                    please use whichever office above is closest to you.</p>
-                <a class="btn btn-gold" href="mailto:info@ivoireafrica.com?subject=MRO%20Solutions%20Enquiry">Email our team</a>
+            <div class="store revealable">
+                <div class="store-copy">
+                    <p class="eyebrow on-light">Or Visit Our Store</p>
+                    <h3>Ongwediva</h3>
+                    <ul class="store-lines">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>ERF Complex, Unit 2<br>Ongwediva, Namibia</span>
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn btn-navy" href="mailto:info@ivoireafrica.com?subject=MRO%20Solutions%20Enquiry%20-%20Ongwediva%20Store">Contact the store</a>
             </div>
         </div>
     </section>
@@ -1601,7 +1384,7 @@
                 <a href="#generators">Generators</a>
                 <a href="#ppe">PPE</a>
                 <a href="#lifting">Lifting &amp; Lashing</a>
-                <a href="#region">Regional Supply</a>
+                <a href="#metallurgical">Metallurgical Testing</a>
                 <a href="#contact">Contact</a>
                 <a href="index.html">Ivoire Investment Group</a>
             </nav>
