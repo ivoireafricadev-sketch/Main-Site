@@ -1,0 +1,29 @@
+# Client source material dropped in the project root (brochures, signboard
+# artwork, scope documents). These are working references, not site files.
+# Root level only, so public/ assets and docs/client-briefs/ stay tracked.
+/*.pdf
+/*.docx
+/*.doc
+/*.pptx
+/*.xlsx
+
+# Firebase CLI
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+*.log
+
+# Dependencies and secrets
+node_modules/
+.env
+.env.*
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch files used when previewing pages locally
+public/__*.html
