@@ -13,10 +13,10 @@
       gtag('config', 'G-0S333X7FYM');
     </script>
     <title>Ivoire MRO Solutions | Industrial Supply for Mining, Infrastructure &amp; Heavy Industry</title>
-    <meta name="description" content="Ivoire MRO Solutions supplies industrial fasteners, diesel generators, PPE and lifting &amp; lashing equipment to mining, construction and heavy industry across Namibia, Botswana, Zambia and Zimbabwe. Inquiry based supply - contact our team for a quotation.">
-    <meta name="keywords" content="MRO supply Namibia, industrial fasteners, high tensile bolts, industrial generators, PPE supplier, lifting and lashing equipment, mining supply Southern Africa, Ivoire MRO Solutions">
+    <meta name="description" content="Ivoire MRO Solutions supplies industrial fasteners, diesel generators, PPE, lifting &amp; lashing equipment, and metallurgical testing with chemicals and reagents to mining, construction and heavy industry across Namibia, Botswana, Zambia and Zimbabwe. Enquiry based supply - contact our team for a quotation.">
+    <meta name="keywords" content="MRO supply Namibia, industrial fasteners, high tensile bolts, industrial generators, PPE supplier, lifting and lashing equipment, metallurgical testing, laboratory reagents, industrial acids, flotation reagents, mining supply Southern Africa, Ivoire MRO Solutions">
     <meta property="og:title" content="Ivoire MRO Solutions | Industrial MRO Supply Across Southern Africa">
-    <meta property="og:description" content="Reliable supply of generators, industrial fasteners and maintenance components for mining, infrastructure and heavy industry.">
+    <meta property="og:description" content="Reliable supply of generators, industrial fasteners, PPE, lifting equipment and metallurgical chemicals for mining, infrastructure and heavy industry.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="mro/signboard.jpg">
     <meta name="theme-color" content="#072541">
@@ -591,6 +591,97 @@
         .category-foot p { margin: 0; font-size: 0.86rem; font-weight: 300; max-width: 62ch; }
         .category-foot p strong { color: var(--gold); font-weight: 700; }
 
+        /* chemicals and reagents range, inside the metallurgical category */
+        .chem { padding: 0 46px 8px; }
+
+        .chem h4 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .chem-lede {
+            max-width: 72ch;
+            margin: 0 0 28px;
+            color: var(--muted);
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        .chem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 34px;
+        }
+
+        .chem-card {
+            padding: 26px 24px;
+            background: var(--paper);
+            border: 1px solid var(--paper-edge);
+            border-radius: 12px;
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .chem-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 91, 192, .35);
+            box-shadow: 0 16px 30px rgba(13, 31, 51, .1);
+        }
+
+        .chem-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            padding: 0 10px;
+            margin-bottom: 16px;
+            background: rgba(16, 91, 192, .1);
+            border-bottom: 3px solid var(--gold);
+            color: var(--blue);
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        .chem-card h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            margin: 0 0 10px;
+        }
+
+        .chem-card > p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-weight: 300;
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        .chem-card ul { list-style: none; margin: 0; padding: 0; }
+
+        .chem-card li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .chem-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 11px;
+            height: 2px;
+            background: var(--gold-deep);
+        }
+
         /* Bobo callout ----------------------------------------------- */
         .bobo-tip {
             display: flex;
@@ -705,11 +796,16 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
             font-weight: 500;
             line-height: 1.6;
             color: var(--navy);
         }
+
+        .store-lines li:last-child { margin-bottom: 0; }
+        .store-lines a { color: var(--navy); text-decoration: none; }
+        .store-lines a:hover { color: var(--blue); text-decoration: underline; }
 
         .store-lines svg { width: 19px; height: 19px; margin-top: 4px; color: var(--gold-deep); flex: none; }
 
@@ -788,6 +884,10 @@
             .gallery-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
+        @media (max-width: 980px) {
+            .chem-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
             .hero-figure { display: none; }
@@ -864,6 +964,7 @@
 
             section { padding: 68px 0; }
             .category-copy,
+            .chem,
             .gallery { padding-left: 26px; padding-right: 26px; }
             .category-copy { padding-top: 36px; padding-bottom: 32px; }
             .bobo-tip { margin-left: 26px; margin-right: 26px; }
@@ -873,6 +974,7 @@
         @media (max-width: 600px) {
             .hero-inner { padding: 48px 24px 56px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .chem-grid { grid-template-columns: 1fr; }
             .trust ul { grid-template-columns: 1fr; }
             .trust li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .09); }
             .trust li:first-child { border-top: 0; }
@@ -1255,6 +1357,80 @@
                     </div>
                 </div>
 
+                <!-- chemicals and reagents range -->
+                <div class="chem">
+                    <h4>Chemicals &amp; Reagents</h4>
+                    <p class="chem-lede">Industrial chemicals, laboratory reagents and metallurgical process
+                        chemicals &mdash; supplied to the grade, concentration, packaging and application your
+                        operation requires.</p>
+
+                    <div class="chem-grid">
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">S</span>
+                            <h5>Sulphur products</h5>
+                            <p>Elemental sulphur supplied in the form and packaging your operation requires.</p>
+                            <ul><li>Granular sulphur</li><li>Powdered sulphur</li><li>Industrial applications</li></ul>
+                        </div>
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">pH</span>
+                            <h5>Industrial acids</h5>
+                            <p>Reliable acid supply for mining, metallurgical and industrial processing.</p>
+                            <ul><li>Sulphuric acid</li><li>Hydrochloric acid</li><li>Nitric acid</li></ul>
+                        </div>
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">R</span>
+                            <h5>Laboratory reagents</h5>
+                            <p>Reagents selected according to the analytical method and required grade.</p>
+                            <ul><li>Laboratory grade</li><li>Analytical grade</li><li>Technical grade</li></ul>
+                        </div>
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">M</span>
+                            <h5>Metallurgical chemicals</h5>
+                            <p>Process chemicals supporting mineral recovery, separation and control.</p>
+                            <ul><li>Flotation reagents</li><li>pH modifiers</li><li>Process chemicals</li></ul>
+                        </div>
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">F</span>
+                            <h5>Fluxes &amp; preparation</h5>
+                            <p>Chemicals and consumables used in sample preparation and analysis.</p>
+                            <ul><li>Fusion fluxes</li><li>Standards</li><li>Filter media</li></ul>
+                        </div>
+                        <div class="chem-card revealable">
+                            <span class="chem-mark">C</span>
+                            <h5>Custom requirements</h5>
+                            <p>Tell us the grade, concentration and packaging your specification calls for.</p>
+                            <ul><li>Specification matching</li><li>Volume supply</li><li>Delivery planning</li></ul>
+                        </div>
+                    </div>
+
+                    <p class="range-title">Supplied to</p>
+                    <ul class="chips">
+                        <li>Mining</li>
+                        <li>Mineral processing</li>
+                        <li>Metallurgical laboratories</li>
+                        <li>Industrial manufacturing</li>
+                        <li>Water treatment</li>
+                        <li>Research facilities</li>
+                    </ul>
+                </div>
+
+                <div class="bobo-tip">
+                    <picture>
+                        <source srcset="mro/bobo.webp" type="image/webp">
+                        <img src="mro/bobo.png" alt="" aria-hidden="true" loading="lazy">
+                    </picture>
+                    <div>
+                        <strong>Bobo&rsquo;s tip &mdash; four details describe a chemical</strong>
+                        <ol class="bobo-list">
+                            <li>Chemical &mdash; product name or specification</li>
+                            <li>Grade &mdash; industrial, technical, laboratory or analytical</li>
+                            <li>Strength &mdash; purity or acid concentration required</li>
+                            <li>Quantity &mdash; volume, packaging and delivery location</li>
+                        </ol>
+                        <p>Send those with your enquiry and we can quote straight away.</p>
+                    </div>
+                </div>
+
                 <div class="category-foot">
                     <p><strong>Applications:</strong> mineral recovery programmes, plant process optimisation,
                         and laboratory capability for mining and processing operations.</p>
@@ -1362,6 +1538,14 @@
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             <span>ERF Complex, Unit 2<br>Ongwediva, Namibia</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 16 14"></polyline></svg>
+                            <span>Open 8am to 5pm</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+                            <span><a href="tel:+264818944248">+264 81 894 4248</a></span>
                         </li>
                     </ul>
                 </div>
