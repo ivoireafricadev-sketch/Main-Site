@@ -430,9 +430,6 @@
 
         .category-copy { padding: 48px 46px; }
 
-        /* the service category carries no product photography */
-        .category-top.no-feature { grid-template-columns: 1fr; }
-        .category-top.no-feature .category-copy { max-width: 90ch; }
 
         .category-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); margin-bottom: 18px; }
 
@@ -494,34 +491,16 @@
             display: block;
         }
 
-        /* categories illustrated rather than photographed get a soft backdrop
-           so the panel reads as designed rather than empty */
+        /* product shots come on a white field, so show them whole rather
+           than cropping them the way the in-situ photography is cropped */
         .category-feature.contain {
-            background: radial-gradient(circle at 50% 44%, #ffffff 0%, #eef3f8 56%, #e1e9f1 100%);
+            background: #fff;
             border-left: 1px solid var(--paper-edge);
         }
 
-        .category-feature.contain::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 340px;
-            height: 340px;
-            transform: translate(-50%, -50%);
-            border: 1px solid rgba(16, 91, 192, .12);
-            border-radius: 50%;
-        }
-
         .category-feature.contain img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: min(72%, 350px);
-            height: auto;
-            padding: 0;
-            transform: translate(-50%, -50%);
             object-fit: contain;
+            padding: 30px;
         }
 
         /* gallery ---------------------------------------------------- */
@@ -565,6 +544,13 @@
             object-fit: contain;
             background: #fff;
             padding: 10px;
+        }
+
+        /* in-situ photography fills its tile instead of sitting on a white field */
+        .gallery-scene figure img {
+            height: 172px;
+            object-fit: cover;
+            padding: 0;
         }
 
         .gallery figcaption {
@@ -1257,19 +1243,20 @@
                         </a>
                     </div>
                     <div class="category-feature contain">
-                        <img src="mro/ppe-helmet.svg" alt="Industrial safety helmet" loading="lazy">
+                        <img src="mro/ppe-hivis.jpg" alt="High visibility vest, jacket and coverall" loading="lazy">
                     </div>
                 </div>
 
                 <div class="gallery">
                     <h4>View Products</h4>
                     <div class="gallery-grid">
-                        <figure class="revealable"><img src="mro/ppe-helmet.svg" alt="Industrial safety helmet" loading="lazy"><figcaption>Safety helmets</figcaption></figure>
-                        <figure class="revealable"><img src="mro/ppe-vest.svg" alt="High visibility safety vest" loading="lazy"><figcaption>High-visibility clothing</figcaption></figure>
-                        <figure class="revealable"><img src="mro/ppe-boots.svg" alt="Steel toe safety boots" loading="lazy"><figcaption>Safety footwear</figcaption></figure>
-                        <figure class="revealable"><img src="mro/ppe-gloves.svg" alt="Industrial safety gloves" loading="lazy"><figcaption>Hand protection</figcaption></figure>
-                        <figure class="revealable"><img src="mro/ppe-eyewear.svg" alt="Safety eyewear and ear defenders" loading="lazy"><figcaption>Eye &amp; hearing protection</figcaption></figure>
-                        <figure class="revealable"><img src="mro/ppe-mask.svg" alt="Respirator with twin filters" loading="lazy"><figcaption>Respiratory protection</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-head-hearing.jpg" alt="Safety helmet, ear defenders and ear plugs" loading="lazy"><figcaption>Safety helmets &amp; hearing protection</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-hivis.jpg" alt="High visibility vest, jacket and coverall" loading="lazy"><figcaption>High-visibility clothing</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-footwear.jpg" alt="Steel toe safety boots" loading="lazy"><figcaption>Safety footwear</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-gloves.jpg" alt="Leather, cut resistant, chemical and impact gloves" loading="lazy"><figcaption>Hand protection</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-eye-face.jpg" alt="Safety glasses, goggles, face shield and welding goggles" loading="lazy"><figcaption>Eye &amp; face protection</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-respiratory.jpg" alt="Half mask and full face respirators with filters" loading="lazy"><figcaption>Respiratory protection</figcaption></figure>
+                        <figure class="revealable"><img src="mro/ppe-fall-arrest.jpg" alt="Fall arrest harness, lanyards and carabiners" loading="lazy"><figcaption>Fall-arrest &amp; height safety</figcaption></figure>
                     </div>
                 </div>
 
@@ -1309,19 +1296,21 @@
                         </a>
                     </div>
                     <div class="category-feature contain">
-                        <img src="mro/lift-chain-sling.svg" alt="Two leg chain sling with master link and hooks" loading="lazy">
+                        <img src="mro/lift-round-slings.jpg" alt="Colour coded endless round slings" loading="lazy">
                     </div>
                 </div>
 
                 <div class="gallery">
                     <h4>View Products</h4>
                     <div class="gallery-grid">
-                        <figure class="revealable"><img src="mro/lift-chain-sling.svg" alt="Two leg chain sling" loading="lazy"><figcaption>Chain slings &amp; components</figcaption></figure>
-                        <figure class="revealable"><img src="mro/lift-round-sling.svg" alt="Round and webbing slings" loading="lazy"><figcaption>Round &amp; webbing slings</figcaption></figure>
-                        <figure class="revealable"><img src="mro/lift-shackle.svg" alt="Bow shackle with screw pin" loading="lazy"><figcaption>Shackles &amp; connecting links</figcaption></figure>
-                        <figure class="revealable"><img src="mro/lift-eye-bolt.svg" alt="Lifting eye bolt" loading="lazy"><figcaption>Eye bolts &amp; hoist rings</figcaption></figure>
-                        <figure class="revealable"><img src="mro/lift-chain-block.svg" alt="Lever hoist and chain block" loading="lazy"><figcaption>Lever hoists &amp; chain blocks</figcaption></figure>
-                        <figure class="revealable"><img src="mro/lift-ratchet.svg" alt="Ratchet lashing strap" loading="lazy"><figcaption>Ratchet tie-downs &amp; binders</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-round-slings.jpg" alt="Endless round slings in capacity colour codes" loading="lazy"><figcaption>Round slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-webbing-flat.jpg" alt="Flat webbing slings with reinforced eyes" loading="lazy"><figcaption>Flat webbing slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-duplex.jpg" alt="Duplex webbing slings in capacity colour codes" loading="lazy"><figcaption>Duplex webbing slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-webbing-long.jpg" alt="Long length webbing slings coiled" loading="lazy"><figcaption>Long-length webbing slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-ratchet-straps.jpg" alt="Ratchet tie-down straps with claw hooks" loading="lazy"><figcaption>Ratchet tie-downs &amp; lashing straps</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-cradle.jpg" alt="Webbing cradle sling for pallets and crates" loading="lazy"><figcaption>Pallet &amp; crate lifting slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-drum.jpg" alt="Webbing sling for lifting drums and cylinders" loading="lazy"><figcaption>Drum &amp; cylinder slings</figcaption></figure>
+                        <figure class="revealable"><img src="mro/lift-cargo-net.jpg" alt="Webbing cargo net" loading="lazy"><figcaption>Cargo nets</figcaption></figure>
                     </div>
                 </div>
 
@@ -1335,7 +1324,7 @@
 
             <!-- ------------------------------------------- METALLURGICAL -->
             <article class="category revealable" id="metallurgical">
-                <div class="category-top no-feature">
+                <div class="category-top">
                     <div class="category-copy">
                         <p class="service-tag">Service</p>
                         <h3>Metallurgical Testing &amp; Process Optimisation</h3>
@@ -1354,6 +1343,22 @@
                             Shop Now
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
+                    </div>
+                    <div class="category-feature">
+                        <img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery gallery-scene">
+                    <h4>Testing &amp; Laboratory Capability</h4>
+                    <div class="gallery-grid">
+                        <figure class="revealable"><img src="mro/met-laboratory.jpg" alt="Analytical laboratory with instrumentation and prepared samples" loading="lazy"><figcaption>Laboratory &amp; analytical instrumentation</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-pilot-plant.jpg" alt="Operator at a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-sample-prep.jpg" alt="Filter press, drying oven, furnace and sieve shaker" loading="lazy"><figcaption>Sample preparation, filtration &amp; drying</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-crushing.jpg" alt="Jaw crusher, pulveriser and sample splitters" loading="lazy"><figcaption>Crushing, milling &amp; sample division</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-test-rig.jpg" alt="Bobo at a metallurgical bench test rig" loading="lazy"><figcaption>Test rigs &amp; bench equipment</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-sample-handling.jpg" alt="Bobo preparing sample trays in a laboratory" loading="lazy"><figcaption>Sample handling &amp; analysis</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-modular-lab.jpg" alt="Containerised modular laboratory on site" loading="lazy"><figcaption>Modular laboratories</figcaption></figure>
                     </div>
                 </div>
 

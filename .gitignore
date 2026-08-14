@@ -7,6 +7,10 @@
 /*.pptx
 /*.xlsx
 
+# Raw client media dropped in the root (Google Drive exports keep their
+# timestamped folder names). The processed copies live in public/mro/.
+/*-*T*Z-*-*/
+
 # Firebase CLI
 .firebase/
 firebase-debug.log
