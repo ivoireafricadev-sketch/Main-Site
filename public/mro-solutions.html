@@ -102,6 +102,21 @@
             max-width: 62ch;
         }
 
+        /* body copy is justified across the page; headings, captions, chips and
+           buttons keep their own alignment */
+        .lede,
+        .overview-grid p,
+        .category-copy > p,
+        .range-lede,
+        .category-foot p,
+        .chem-lede,
+        .chem-card p,
+        .bobo-tip p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+
         /* ------------------------------------------------------- buttons */
         .btn {
             display: inline-flex;
@@ -457,6 +472,13 @@
             font-size: 0.98rem;
         }
 
+        .range-lede {
+            margin: 0 0 16px;
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: var(--muted);
+        }
+
         .range-title {
             margin: 0 0 14px;
             font-size: 0.72rem;
@@ -676,7 +698,11 @@
             display: flex;
             align-items: flex-start;
             gap: 18px;
-            margin: 0 46px 34px;
+            /* sized to its content and left-aligned, with clearance from the
+               feature image above rather than butting against it */
+            width: fit-content;
+            max-width: calc(100% - 92px);
+            margin: 34px 46px;
             padding: 18px 24px 18px 18px;
             background: linear-gradient(100deg, rgba(16, 91, 192, .07), rgba(247, 197, 62, .1));
             border: 1px dashed rgba(16, 91, 192, .35);
@@ -704,7 +730,9 @@
         }
 
         /* ------------------------------------------------------- contact */
-        #contact { background: var(--paper); }
+        /* trimmed at the foot so the store block does not sit in a large gap
+           above the footer */
+        #contact { background: var(--paper); padding-bottom: 46px; }
 
         .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
@@ -960,6 +988,19 @@
             .category-foot { padding: 24px 26px; }
         }
 
+        /* justification needs a wide enough measure; below this the word gaps
+           open up badly, so fall back to left aligned */
+        @media (max-width: 700px) {
+            .lede,
+            .overview-grid p,
+            .category-copy > p,
+            .range-lede,
+            .category-foot p,
+            .chem-lede,
+            .chem-card p,
+            .bobo-tip p { text-align: left; }
+        }
+
         @media (max-width: 600px) {
             .hero-inner { padding: 48px 24px 56px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -996,13 +1037,12 @@
                     <a href="#generators">Industrial Generators<span>Diesel gensets for remote and standby power</span></a>
                     <a href="#ppe">Personal Protective Equipment<span>Head-to-toe protection for site crews</span></a>
                     <a href="#lifting">Lifting &amp; Lashing Equipment<span>Slings, shackles, hoists and load restraint</span></a>
-                    <a href="#metallurgical">Metallurgical Testing<span>Testing, laboratory solutions and process optimisation</span></a>
+                    <a href="#metallurgical">Chemicals &amp; Metallurgical Services<span>Test work, process chemicals, grinding media and consumables</span></a>
                 </div>
             </div>
 
             <a href="#contact">Contact</a>
             <a href="index.html">Ivoire Group</a>
-            <a class="btn btn-gold header-cta" href="#contact">Shop Now</a>
         </nav>
 
         <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
@@ -1024,18 +1064,14 @@
                     industrial supply networks across Southern Africa.</p>
 
                 <div class="hero-actions">
-                    <a class="btn btn-gold" href="#contact">
-                        Shop Now
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
                     <a class="btn btn-ghost" href="#products">Explore our range</a>
                 </div>
             </div>
 
             <div class="hero-figure">
                 <picture>
-                    <source srcset="mro/bobo.webp" type="image/webp">
-                    <img src="mro/bobo.png" alt="Bobo, the Ivoire MRO Solutions mascot" width="560" height="1114">
+                    <source srcset="mro/bobo-v2.webp" type="image/webp">
+                    <img src="mro/bobo-v2.png" alt="Bobo, the Ivoire MRO Solutions mascot" width="560" height="1114">
                 </picture>
                 <div class="iso-chip">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
@@ -1121,10 +1157,6 @@
                             <li>Threaded Rods</li>
                         </ul>
 
-                        <a class="btn btn-navy" href="#contact">
-                            Shop Now
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                     <div class="category-feature">
                         <img src="mro/fasteners-hero.jpg" alt="Bolts, nuts and washers laid out beside a vernier caliper" loading="lazy">
@@ -1133,8 +1165,8 @@
 
                 <div class="bobo-tip">
                     <picture>
-                        <source srcset="mro/bobo.webp" type="image/webp">
-                        <img src="mro/bobo.png" alt="" aria-hidden="true" loading="lazy">
+                        <source srcset="mro/bobo-v2.webp" type="image/webp">
+                        <img src="mro/bobo-v2.png" alt="" aria-hidden="true" loading="lazy">
                     </picture>
                     <div>
                         <strong>Bobo&rsquo;s tip &mdash; six details describe a fastener</strong>
@@ -1177,35 +1209,22 @@
                 <div class="category-top">
                     <div class="category-copy">
                         <h3>Industrial Generators</h3>
-                        <p>We supply industrial diesel generators sourced from trusted international
-                            manufacturing partners and designed for demanding environments. Generators provide
+                        <p>We supply industrial diesel generators from trusted international manufacturing
+                            partners, built for demanding environments. Generators provide
                             reliable power solutions where grid power is limited or unavailable &mdash; keeping
                             remote sites, processing plants and construction projects running.</p>
 
                         <p class="range-title">Product range includes</p>
                         <ul class="chips">
                             <li>Industrial grade generators</li>
-                            <li>Factory sourcing from international manufacturers</li>
+                            <li>Direct from international manufacturers</li>
                             <li>Logistics coordination and delivery</li>
                             <li>Power solutions for remote operations</li>
                         </ul>
 
-                        <a class="btn btn-navy" href="#contact">
-                            Shop Now
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                     <div class="category-feature">
                         <img src="mro/generators.jpg" alt="Row of silent canopy diesel generator sets in a manufacturing facility" loading="lazy">
-                    </div>
-                </div>
-
-                <div class="gallery">
-                    <h4>View Products</h4>
-                    <div class="gallery-grid">
-                        <figure class="revealable"><img src="mro/gen-unit.jpg" alt="Single silent canopy diesel generator with control panel" loading="lazy"><figcaption>Silent canopy diesel gensets</figcaption></figure>
-                        <figure class="revealable"><img src="mro/gen-bank.jpg" alt="Several generator sets lined up in a factory" loading="lazy"><figcaption>Factory sourced generator sets</figcaption></figure>
-                        <figure class="revealable"><img src="mro/gen-line.jpg" alt="Generator consignment staged for dispatch" loading="lazy"><figcaption>Consignments staged for dispatch</figcaption></figure>
                     </div>
                 </div>
 
@@ -1225,7 +1244,7 @@
                         <p>Personal Protective Equipment is the last line of defence on any industrial site,
                             and it only works when it is available, correctly specified and consistently
                             resupplied. We supply site-ready PPE for mining, construction and industrial
-                            maintenance teams &mdash; head-to-toe protection backed by the same sourcing and
+                            maintenance teams &mdash; head-to-toe protection backed by the same supply and
                             logistics network that carries our fastener and generator lines.</p>
 
                         <p class="range-title">Product range includes</p>
@@ -1240,10 +1259,6 @@
                             <li>Fall-arrest &amp; height safety</li>
                         </ul>
 
-                        <a class="btn btn-navy" href="#contact">
-                            Shop Now
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                     <div class="category-feature contain">
                         <img src="mro/ppe-hivis.jpg" alt="High visibility vest, jacket and coverall" loading="lazy">
@@ -1293,10 +1308,6 @@
                             <li>Lashing chains &amp; tensioners</li>
                         </ul>
 
-                        <a class="btn btn-navy" href="#contact">
-                            Shop Now
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                     <div class="category-feature contain">
                         <img src="mro/lift-round-slings.jpg" alt="Colour coded endless round slings" loading="lazy">
@@ -1330,32 +1341,32 @@
                 <div class="category-top">
                     <div class="category-copy">
                         <p class="service-tag">Service</p>
-                        <h3>Metallurgical Testing &amp; Process Optimisation</h3>
-                        <p>We provide specialised metallurgical testing, laboratory solutions and performance
-                            chemicals to support improved mineral recovery and operational efficiency.</p>
+                        <h3>Chemicals &amp; Metallurgical Services</h3>
+                        <p>Metallurgical test work, process chemicals, grinding media and laboratory
+                            consumables&mdash;coordinated around the technical needs of your operation.</p>
 
-                        <p class="range-title">Service range includes</p>
+                        <p class="range-title">Service range</p>
+                        <p class="range-lede">From sample preparation and laboratory testing to pilot-plant and
+                            vendor coordination, our services help clients make informed processing decisions.</p>
                         <ul class="chips">
-                            <li>Metallurgical testing and pilot plant services</li>
-                            <li>Reagents, chemicals, and process optimisation</li>
-                            <li>Laboratory equipment and modular laboratories</li>
+                            <li>On- and off-site test work</li>
+                            <li>Sample preparation</li>
+                            <li>Process test work</li>
+                            <li>Bulk preparation</li>
+                            <li>Pilot plant &amp; vendor management</li>
+                            <li>Laboratory capability</li>
                         </ul>
 
-                        <a class="btn btn-navy" href="#contact">
-                            Shop Now
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                     <div class="category-feature">
-                        <img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy">
+                        <img src="mro/met-laboratory.jpg" alt="Analytical laboratory with instrumentation and prepared samples" loading="lazy">
                     </div>
                 </div>
 
                 <div class="gallery gallery-scene">
                     <h4>Testing &amp; Laboratory Capability</h4>
                     <div class="gallery-grid">
-                        <figure class="revealable"><img src="mro/met-laboratory.jpg" alt="Analytical laboratory with instrumentation and prepared samples" loading="lazy"><figcaption>Laboratory &amp; analytical instrumentation</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-pilot-plant.jpg" alt="Operator at a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
                         <figure class="revealable"><img src="mro/met-sample-prep.jpg" alt="Filter press, drying oven, furnace and sieve shaker" loading="lazy"><figcaption>Sample preparation, filtration &amp; drying</figcaption></figure>
                         <figure class="revealable"><img src="mro/met-crushing.jpg" alt="Jaw crusher, pulveriser and sample splitters" loading="lazy"><figcaption>Crushing, milling &amp; sample division</figcaption></figure>
                         <figure class="revealable"><img src="mro/met-test-rig.jpg" alt="Bobo at a metallurgical bench test rig" loading="lazy"><figcaption>Test rigs &amp; bench equipment</figcaption></figure>
@@ -1364,67 +1375,51 @@
                     </div>
                 </div>
 
-                <!-- chemicals and reagents range -->
+                <!-- product range, listed separately from the service range above -->
                 <div class="chem">
-                    <h4>Chemicals &amp; Reagents</h4>
-                    <p class="chem-lede">Industrial chemicals, laboratory reagents and metallurgical process
-                        chemicals &mdash; supplied to the grade, concentration, packaging and application your
-                        operation requires.</p>
+                    <h4>Product range</h4>
+                    <p class="chem-lede">Products that support mineral recovery. We supply grinding media,
+                        flotation and leaching reagents, process chemicals, industrial acids, oxidants and assay
+                        consumables against your required specification.</p>
 
                     <div class="chem-grid">
                         <div class="chem-card revealable">
-                            <span class="chem-mark">S</span>
-                            <h5>Sulphur products</h5>
-                            <p>Elemental sulphur supplied in the form and packaging your operation requires.</p>
-                            <ul><li>Granular sulphur</li><li>Powdered sulphur</li><li>Industrial applications</li></ul>
+                            <span class="chem-mark">GM</span>
+                            <h5>Grinding media</h5>
+                            <ul><li>Forged steel balls</li><li>Application-matched sizing</li><li>Bulk supply coordination</li></ul>
                         </div>
                         <div class="chem-card revealable">
-                            <span class="chem-mark">pH</span>
-                            <h5>Industrial acids</h5>
-                            <p>Reliable acid supply for mining, metallurgical and industrial processing.</p>
-                            <ul><li>Sulphuric acid</li><li>Hydrochloric acid</li><li>Nitric acid</li></ul>
+                            <span class="chem-mark">LR</span>
+                            <h5>Leaching &amp; recovery</h5>
+                            <ul><li>Sodium cyanide</li><li>Xanthates</li><li>Activated carbon &mdash; 6&times;12 and 8&times;16</li><li>Leach aid</li><li>Speciality PGM and Au collectors</li></ul>
                         </div>
                         <div class="chem-card revealable">
-                            <span class="chem-mark">R</span>
-                            <h5>Laboratory reagents</h5>
-                            <p>Reagents selected according to the analytical method and required grade.</p>
-                            <ul><li>Laboratory grade</li><li>Analytical grade</li><li>Technical grade</li></ul>
+                            <span class="chem-mark">PC</span>
+                            <h5>Process control chemicals</h5>
+                            <ul><li>Caustic soda flakes and lye</li><li>Hydrated lime</li><li>Sodium silicates</li><li>Sodium nitrate</li><li>Ferrous sulphate</li></ul>
                         </div>
                         <div class="chem-card revealable">
-                            <span class="chem-mark">M</span>
-                            <h5>Metallurgical chemicals</h5>
-                            <p>Process chemicals supporting mineral recovery, separation and control.</p>
-                            <ul><li>Flotation reagents</li><li>pH modifiers</li><li>Process chemicals</li></ul>
+                            <span class="chem-mark">FR</span>
+                            <h5>Flotation reagents</h5>
+                            <ul><li>Depressants</li><li>Frothers</li><li>Flocculants &mdash; tailored to application</li><li>Copper sulphate</li><li>Sodium hydrosulphide (NaSH)</li></ul>
                         </div>
                         <div class="chem-card revealable">
-                            <span class="chem-mark">F</span>
-                            <h5>Fluxes &amp; preparation</h5>
-                            <p>Chemicals and consumables used in sample preparation and analysis.</p>
-                            <ul><li>Fusion fluxes</li><li>Standards</li><li>Filter media</li></ul>
+                            <span class="chem-mark">AO</span>
+                            <h5>Acids &amp; oxidants</h5>
+                            <ul><li>Hydrochloric acid</li><li>Nitric acid</li><li>Sulphuric acid</li><li>Hydrogen peroxide</li><li>Sodium hypochlorite</li></ul>
                         </div>
                         <div class="chem-card revealable">
-                            <span class="chem-mark">C</span>
-                            <h5>Custom requirements</h5>
-                            <p>Tell us the grade, concentration and packaging your specification calls for.</p>
-                            <ul><li>Specification matching</li><li>Volume supply</li><li>Delivery planning</li></ul>
+                            <span class="chem-mark">AL</span>
+                            <h5>Assay &amp; laboratory</h5>
+                            <ul><li>Assay litharge</li><li>Product specification matching</li><li>Laboratory supply coordination</li></ul>
                         </div>
                     </div>
-
-                    <p class="range-title">Supplied to</p>
-                    <ul class="chips">
-                        <li>Mining</li>
-                        <li>Mineral processing</li>
-                        <li>Metallurgical laboratories</li>
-                        <li>Industrial manufacturing</li>
-                        <li>Water treatment</li>
-                        <li>Research facilities</li>
-                    </ul>
                 </div>
 
                 <div class="bobo-tip">
                     <picture>
-                        <source srcset="mro/bobo.webp" type="image/webp">
-                        <img src="mro/bobo.png" alt="" aria-hidden="true" loading="lazy">
+                        <source srcset="mro/bobo-v2.webp" type="image/webp">
+                        <img src="mro/bobo-v2.png" alt="" aria-hidden="true" loading="lazy">
                     </picture>
                     <div>
                         <strong>Bobo&rsquo;s tip &mdash; four details describe a chemical</strong>
@@ -1453,7 +1448,7 @@
         <div class="shell">
             <div class="section-head revealable">
                 <div class="rule"></div>
-                <p class="eyebrow on-light">Shop Now</p>
+                <p class="eyebrow on-light">Enquiries</p>
                 <h2>Talk to Our Team</h2>
                 <p class="lede">Ivoire MRO Solutions is an enquiry-based supplier. Tell us what you need and
                     the quantity, and the team in your country will come back to you with availability, lead
@@ -1575,7 +1570,7 @@
                 <a href="#generators">Generators</a>
                 <a href="#ppe">PPE</a>
                 <a href="#lifting">Lifting &amp; Lashing</a>
-                <a href="#metallurgical">Metallurgical Testing</a>
+                <a href="#metallurgical">Chemicals &amp; Metallurgical</a>
                 <a href="#contact">Contact</a>
                 <a href="index.html">Ivoire Investment Group</a>
             </nav>
