@@ -326,6 +326,9 @@
 
         .hero-figure img {
             width: min(100%, 250px);
+            /* the width/height attributes are presentational hints, so without
+               this the height one sticks and the figure stretches vertically */
+            height: auto;
             filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .45));
         }
 
@@ -1032,7 +1035,7 @@
             <div class="hero-figure">
                 <picture>
                     <source srcset="mro/bobo.webp" type="image/webp">
-                    <img src="mro/bobo.png" alt="Bobo, the Ivoire MRO Solutions mascot" width="239" height="446">
+                    <img src="mro/bobo.png" alt="Bobo, the Ivoire MRO Solutions mascot" width="560" height="1114">
                 </picture>
                 <div class="iso-chip">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
