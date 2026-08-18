@@ -772,6 +772,9 @@
             align-items: center;
             justify-content: space-between;
             gap: 26px;
+            /* size the card to its content: full width left it mostly empty on
+               desktop, while narrow screens still fill the space available */
+            width: fit-content;
             margin-top: 34px;
             padding: 34px 38px;
             background: #fff;
@@ -788,29 +791,20 @@
             margin-bottom: 16px;
         }
 
-        /* the card is full width but the detail lines are short, so run them across
-           it instead of stacking them in a narrow column and leaving the rest empty */
-        .store-copy { flex: 1; }
-
-        .store-lines {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 44px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+        .store-lines { list-style: none; margin: 0; padding: 0; }
 
         .store-lines li {
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
             font-weight: 500;
             line-height: 1.6;
             color: var(--navy);
         }
 
+        .store-lines li:last-child { margin-bottom: 0; }
         .store-lines a { color: var(--navy); text-decoration: none; }
         .store-lines a:hover { color: var(--blue); text-decoration: underline; }
 
@@ -898,14 +892,14 @@
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
 
-            /* the mascot and the certification chip both live in this column,
-               so rather than hide it, lay it out as a compact row under the
-               buttons - dropping it would lose the ISO line on mobile */
+            /* once the columns stack, lead with the mascot above the heading and pair
+               it with the certification chip - hiding the column would lose the ISO
+               line on mobile entirely */
             .hero-figure {
                 display: flex;
                 align-items: center;
                 gap: 18px;
-                margin-top: 38px;
+                order: -1;
             }
 
             /* the flex item here is the <picture> wrapper, not the img inside it, so
