@@ -276,7 +276,11 @@
 
         #home .hero-industries {
             margin-top: 25px;
-            white-space: nowrap;
+            /* this line is ~1080px on one row, so nowrap clipped it against
+               the hero's overflow between tablet and small laptop widths */
+            max-width: 1200px;
+            padding: 0 20px;
+            line-height: 2;
         }
 
         .hero-industries small {
@@ -535,6 +539,13 @@
         .location-list .revealable:nth-child(4) { transition-delay: 400ms; }
 
 
+        /* tighten the industries line just enough to hold one row down to
+           roughly 1150px, instead of orphaning the last word */
+        @media (max-width: 1330px) {
+            .hero-industries small { font-size: 0.78rem; letter-spacing: 1.5px; }
+            .hero-industries .separator { margin: 0 9px; }
+        }
+
         @media (max-width: 1200px) {
             .sectors-grid-6 { grid-template-columns: repeat(2, 1fr); }
         }
@@ -595,6 +606,12 @@
              .logo img {
                 height: 40px; 
             }
+            /* this stylesheet has no global border-box, so width:100% plus the 24px
+               side padding pushed the open menu 48px past the viewport edge */
+            .nav,
+            .nav > a,
+            .nav-trigger { box-sizing: border-box; }
+
             .nav { 
                 position: fixed;
                 left: -100%;
@@ -603,7 +620,7 @@
                 background-color: #000;
                 width: 100%;
                 height: calc(100vh - 65px);
-                text-align: center;
+                text-align: left;
                 transition: 0.3s;
                 gap: 20px;
             }
@@ -624,6 +641,8 @@
             }
             .nav > a,
             .nav-trigger {
+                display: flex;
+                align-items: center;
                 width: 100%;
                 justify-content: space-between;
                 padding: 16px 4px;

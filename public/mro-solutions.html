@@ -107,7 +107,6 @@
         .lede,
         .overview-grid p,
         .category-copy > p,
-        .range-lede,
         .category-foot p,
         .chem-lede,
         .chem-card p,
@@ -451,32 +450,13 @@
 
         .category-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); margin-bottom: 18px; }
 
-        /* the fifth category is a service, not a product line */
-        .service-tag {
-            display: inline-block;
-            margin: 0 0 14px;
-            padding: 5px 14px;
-            background: rgba(16, 91, 192, .1);
-            border-radius: 40px;
-            color: var(--blue);
-            font-size: 0.66rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .category-copy > p {
+        /* the service range lede opts into the .chem-lede styling used by the
+           product range below, so keep the generic intro rule off it */
+        .category-copy > p:not(.chem-lede) {
             margin: 0 0 24px;
             color: var(--muted);
             font-weight: 300;
             font-size: 0.98rem;
-        }
-
-        .range-lede {
-            margin: 0 0 16px;
-            font-size: 0.92rem;
-            font-weight: 300;
-            color: var(--muted);
         }
 
         .range-title {
@@ -605,7 +585,8 @@
         /* chemicals and reagents range, inside the metallurgical category */
         .chem { padding: 0 46px 8px; }
 
-        .chem h4 {
+        .chem h4,
+        .category-copy h4 {
             font-size: 1.15rem;
             color: var(--navy);
             margin-bottom: 12px;
@@ -807,20 +788,29 @@
             margin-bottom: 16px;
         }
 
-        .store-lines { list-style: none; margin: 0; padding: 0; }
+        /* the card is full width but the detail lines are short, so run them across
+           it instead of stacking them in a narrow column and leaving the rest empty */
+        .store-copy { flex: 1; }
+
+        .store-lines {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 44px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
         .store-lines li {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            margin-bottom: 10px;
             font-size: 0.95rem;
             font-weight: 500;
             line-height: 1.6;
             color: var(--navy);
         }
 
-        .store-lines li:last-child { margin-bottom: 0; }
         .store-lines a { color: var(--navy); text-decoration: none; }
         .store-lines a:hover { color: var(--blue); text-decoration: underline; }
 
@@ -907,7 +897,22 @@
 
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
-            .hero-figure { display: none; }
+
+            /* the mascot and the certification chip both live in this column,
+               so rather than hide it, lay it out as a compact row under the
+               buttons - dropping it would lose the ISO line on mobile */
+            .hero-figure {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                margin-top: 38px;
+            }
+
+            /* the flex item here is the <picture> wrapper, not the img inside it, so
+               the width and the no-shrink both have to land on the wrapper or Bobo
+               gets squeezed to about half size on a phone */
+            .hero-figure picture { flex: none; width: min(112px, 26vw); }
+            .iso-chip { margin-top: 0; text-align: left; min-width: 0; }
             .category-top { grid-template-columns: 1fr; }
             .category-feature { min-height: 260px; order: -1; }
             .category-feature.contain { border-left: 0; border-bottom: 1px solid var(--paper-edge); }
@@ -984,7 +989,13 @@
             .chem,
             .gallery { padding-left: 26px; padding-right: 26px; }
             .category-copy { padding-top: 36px; padding-bottom: 32px; }
-            .bobo-tip { margin-left: 26px; margin-right: 26px; }
+            /* fit-content leaves the box awkwardly narrow once the columns
+               collapse, so let it use the full width inside the gutters */
+            .bobo-tip {
+                width: auto;
+                max-width: none;
+                margin: 28px 26px;
+            }
             .category-foot { padding: 24px 26px; }
         }
 
@@ -994,7 +1005,6 @@
             .lede,
             .overview-grid p,
             .category-copy > p,
-            .range-lede,
             .category-foot p,
             .chem-lede,
             .chem-card p,
@@ -1009,7 +1019,10 @@
             .trust li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .09); }
             .trust li:first-child { border-top: 0; }
             .btn { width: 100%; justify-content: center; }
-            .bobo-tip { flex-direction: column; text-align: center; }
+            /* stack the mascot above the text, but keep the numbered list
+               left aligned so the markers stay attached to their items */
+            .bobo-tip { flex-direction: column; align-items: flex-start; text-align: left; }
+            .bobo-tip > div { width: 100%; }
         }
     </style>
 </head>
@@ -1340,23 +1353,13 @@
             <article class="category revealable" id="metallurgical">
                 <div class="category-top">
                     <div class="category-copy">
-                        <p class="service-tag">Service</p>
                         <h3>Chemicals &amp; Metallurgical Services</h3>
                         <p>Metallurgical test work, process chemicals, grinding media and laboratory
                             consumables&mdash;coordinated around the technical needs of your operation.</p>
 
-                        <p class="range-title">Service range</p>
-                        <p class="range-lede">From sample preparation and laboratory testing to pilot-plant and
+                        <h4>Service range</h4>
+                        <p class="chem-lede">From sample preparation and laboratory testing to pilot-plant and
                             vendor coordination, our services help clients make informed processing decisions.</p>
-                        <ul class="chips">
-                            <li>On- and off-site test work</li>
-                            <li>Sample preparation</li>
-                            <li>Process test work</li>
-                            <li>Bulk preparation</li>
-                            <li>Pilot plant &amp; vendor management</li>
-                            <li>Laboratory capability</li>
-                        </ul>
-
                     </div>
                     <div class="category-feature">
                         <img src="mro/met-laboratory.jpg" alt="Analytical laboratory with instrumentation and prepared samples" loading="lazy">
@@ -1364,7 +1367,6 @@
                 </div>
 
                 <div class="gallery gallery-scene">
-                    <h4>Testing &amp; Laboratory Capability</h4>
                     <div class="gallery-grid">
                         <figure class="revealable"><img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
                         <figure class="revealable"><img src="mro/met-sample-prep.jpg" alt="Filter press, drying oven, furnace and sieve shaker" loading="lazy"><figcaption>Sample preparation, filtration &amp; drying</figcaption></figure>
