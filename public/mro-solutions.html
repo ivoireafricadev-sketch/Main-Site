@@ -350,22 +350,35 @@
             filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .45));
         }
 
+        /* the certification chip sits beside the fastener tip, on paper rather
+           than on the dark hero, so it carries light-background colours */
+        .tip-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 22px;
+            margin: 34px 46px;
+        }
+
+        .tip-row .bobo-tip { max-width: 100%; margin: 0; }
+
         .iso-chip {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(247, 197, 62, .45);
+            max-width: 100%;
+            padding: 13px 20px;
+            background: var(--paper);
+            border: 1px solid rgba(247, 197, 62, .55);
             border-radius: 40px;
+            color: var(--navy);
             font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
-        .iso-chip svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
+        .iso-chip svg { width: 18px; height: 18px; color: var(--gold-deep); flex: none; }
 
         /* -------------------------------------------------- trust strip */
         .trust {
@@ -901,13 +914,11 @@
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
 
-            /* once the columns stack, lead with the mascot above the heading and pair
-               it with the certification chip - hiding the column would lose the ISO
-               line on mobile entirely */
+            /* once the columns stack, lead with the mascot above the heading. Flex keeps
+               it left aligned with the copy rather than centred over it */
             .hero-figure {
                 display: flex;
                 align-items: center;
-                gap: 18px;
                 order: -1;
             }
 
@@ -915,7 +926,6 @@
                the width and the no-shrink both have to land on the wrapper or Bobo
                gets squeezed to about half size on a phone */
             .hero-figure picture { flex: none; width: min(112px, 26vw); }
-            .iso-chip { margin-top: 0; text-align: left; min-width: 0; }
             .category-top { grid-template-columns: 1fr; }
             .category-feature { min-height: 260px; order: -1; }
             .category-feature.contain { border-left: 0; border-bottom: 1px solid var(--paper-edge); }
@@ -994,6 +1004,8 @@
             .category-copy { padding-top: 36px; padding-bottom: 32px; }
             /* fit-content leaves the box awkwardly narrow once the columns
                collapse, so let it use the full width inside the gutters */
+            .tip-row { margin: 28px 26px; }
+
             .bobo-tip {
                 width: auto;
                 max-width: none;
@@ -1090,10 +1102,6 @@
                     <source srcset="mro/bobo-v2.webp" type="image/webp">
                     <img src="mro/bobo-v2.png" alt="Bobo, the Ivoire MRO Solutions mascot" width="560" height="1114">
                 </picture>
-                <div class="iso-chip">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                    Our products are quality certified &middot; ISO 9001:2015
-                </div>
             </div>
         </div>
     </section>
@@ -1182,22 +1190,29 @@
                     </div>
                 </div>
 
-                <div class="bobo-tip">
-                    <picture>
-                        <source srcset="mro/bobo-v2.webp" type="image/webp">
-                        <img src="mro/bobo-v2.png" alt="" aria-hidden="true" loading="lazy">
-                    </picture>
-                    <div>
-                        <strong>Bobo&rsquo;s tip: six details describe a fastener</strong>
-                        <ol class="bobo-list">
-                            <li>Item or drawing</li>
-                            <li>Diameter &times; length</li>
-                            <li>Thread or pitch</li>
-                            <li>Grade</li>
-                            <li>Finish</li>
-                            <li>Quantity</li>
-                        </ol>
-                        <p>Send those with your enquiry and we can quote straight away.</p>
+                <div class="tip-row">
+                    <div class="bobo-tip">
+                        <picture>
+                            <source srcset="mro/bobo-v2.webp" type="image/webp">
+                            <img src="mro/bobo-v2.png" alt="" aria-hidden="true" loading="lazy">
+                        </picture>
+                        <div>
+                            <strong>Bobo&rsquo;s tip: six details describe a fastener</strong>
+                            <ol class="bobo-list">
+                                <li>Item or drawing</li>
+                                <li>Diameter &times; length</li>
+                                <li>Thread or pitch</li>
+                                <li>Grade</li>
+                                <li>Finish</li>
+                                <li>Quantity</li>
+                            </ol>
+                            <p>Send those with your enquiry and we can quote straight away.</p>
+                        </div>
+                    </div>
+
+                    <div class="iso-chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        Our products are quality certified &middot; ISO 9001:2015
                     </div>
                 </div>
 
