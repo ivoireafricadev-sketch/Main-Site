@@ -586,8 +586,9 @@
         .category-foot p { margin: 0; font-size: 0.86rem; font-weight: 300; max-width: 62ch; }
         .category-foot p strong { color: var(--gold); font-weight: 700; }
 
-        /* chemicals and reagents range, inside the metallurgical category */
-        .chem { padding: 0 46px 8px; }
+        /* reagent category grid */
+        /* matches the separation the galleries get above their first row */
+        .chem { padding: 64px 46px 8px; }
 
         .chem h4,
         .category-copy h4 {
@@ -974,7 +975,7 @@
             }
 
             .has-drop:hover .drop { max-height: 0; padding: 0; }
-            .has-drop.open .drop { max-height: 460px; padding: 6px 0 14px; }
+            .has-drop.open .drop { max-height: 620px; padding: 6px 0 14px; }
 
             .drop a { color: rgba(255, 255, 255, .78); padding: 12px 16px; }
             .drop a span { color: rgba(255, 255, 255, .5); }
@@ -1048,7 +1049,8 @@
                     <a href="#generators">Industrial Generators<span>Diesel gensets for remote and standby power</span></a>
                     <a href="#ppe">Personal Protective Equipment<span>Head-to-toe protection for site crews</span></a>
                     <a href="#lifting">Lifting &amp; Lashing Equipment<span>Slings, shackles, hoists and load restraint</span></a>
-                    <a href="#metallurgical">Chemicals &amp; Metallurgical Services<span>Test work, process chemicals, grinding media and consumables</span></a>
+                    <a href="#chemicals">Chemical Reagents<span>Grinding media, flotation and leaching reagents, acids and consumables</span></a>
+                    <a href="#metallurgical">Metallurgical Services<span>Test work, sample preparation, pilot plants and laboratory capability</span></a>
                 </div>
             </div>
 
@@ -1347,41 +1349,27 @@
                 </div>
             </article>
 
-            <!-- ------------------------------------------- METALLURGICAL -->
-            <article class="category revealable" id="metallurgical">
+            <!-- --------------------------------------- CHEMICAL REAGENTS -->
+            <article class="category revealable" id="chemicals">
                 <div class="category-top">
                     <div class="category-copy">
-                        <h3>Chemicals &amp; Metallurgical Services</h3>
-                        <p>Metallurgical test work, process chemicals, grinding media and laboratory
-                            consumables, coordinated around the technical needs of your operation.</p>
+                        <h3>Chemical Reagents</h3>
+                        <p>Reagents and process chemicals for mineral recovery circuits, supplied against
+                            the grade, concentration and packaging your operation works to. We coordinate
+                            supply across gold and base metal flowsheets, from comminution and flotation
+                            through to leaching, recovery and assay.</p>
 
-                        <h4>Service range</h4>
-                        <p class="chem-lede">From sample preparation and laboratory testing to pilot-plant and
-                            vendor coordination, our services help clients make informed processing decisions.</p>
+                        <h4>Product range</h4>
+                        <p class="chem-lede">We supply grinding media, flotation and leaching reagents,
+                            process chemicals, industrial acids, oxidants and assay consumables against your
+                            required specification.</p>
                     </div>
                     <div class="category-feature">
-                        <img src="mro/met-laboratory.jpg" alt="Analytical laboratory with instrumentation and prepared samples" loading="lazy">
+                        <img src="mro/met-laboratory.jpg" alt="Analytical laboratory with reagent stocks and instrumentation" loading="lazy">
                     </div>
                 </div>
 
-                <div class="gallery gallery-scene">
-                    <div class="gallery-grid">
-                        <figure class="revealable"><img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-sample-prep.jpg" alt="Filter press, drying oven, furnace and sieve shaker" loading="lazy"><figcaption>Sample preparation, filtration &amp; drying</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-crushing.jpg" alt="Jaw crusher, pulveriser and sample splitters" loading="lazy"><figcaption>Crushing, milling &amp; sample division</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-test-rig.jpg" alt="Bobo at a metallurgical bench test rig" loading="lazy"><figcaption>Test rigs &amp; bench equipment</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-sample-handling.jpg" alt="Bobo preparing sample trays in a laboratory" loading="lazy"><figcaption>Sample handling &amp; analysis</figcaption></figure>
-                        <figure class="revealable"><img src="mro/met-modular-lab.jpg" alt="Containerised modular laboratory on site" loading="lazy"><figcaption>Modular laboratories</figcaption></figure>
-                    </div>
-                </div>
-
-                <!-- product range, listed separately from the service range above -->
                 <div class="chem">
-                    <h4>Product range</h4>
-                    <p class="chem-lede">Products that support mineral recovery. We supply grinding media,
-                        flotation and leaching reagents, process chemicals, industrial acids, oxidants and assay
-                        consumables against your required specification.</p>
-
                     <div class="chem-grid">
                         <div class="chem-card revealable">
                             <span class="chem-mark">GM</span>
@@ -1430,6 +1418,42 @@
                             <li>Quantity: volume, packaging and delivery location</li>
                         </ol>
                         <p>Send those with your enquiry and we can quote straight away.</p>
+                    </div>
+                </div>
+
+                <div class="category-foot">
+                    <p><strong>Applications:</strong> gold and base metal recovery circuits, flotation and
+                        leaching plants, process condition control, and assay and laboratory programmes.</p>
+                    <a class="btn btn-gold" href="#contact">Enquire</a>
+                </div>
+            </article>
+
+            <!-- ---------------------------------- METALLURGICAL SERVICES -->
+            <article class="category revealable" id="metallurgical">
+                <div class="category-top">
+                    <div class="category-copy">
+                        <h3>Metallurgical Services</h3>
+                        <p>Practical test work that turns samples into decisions. We run metallurgical test
+                            programmes at your operation or through an appropriate test facility, and
+                            coordinate the pilot plants, vendors and laboratory capability behind them.</p>
+
+                        <h4>Service range</h4>
+                        <p class="chem-lede">From sample preparation and laboratory testing to pilot-plant and
+                            vendor coordination, our services help clients make informed processing decisions.</p>
+                    </div>
+                    <div class="category-feature">
+                        <img src="mro/met-test-rig.jpg" alt="Bobo at a metallurgical bench test rig" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="gallery gallery-scene">
+                    <div class="gallery-grid">
+                        <figure class="revealable"><img src="mro/met-pilot-bobo.jpg" alt="Bobo alongside a column flotation pilot plant" loading="lazy"><figcaption>Pilot plant &amp; flotation test work</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-sample-prep.jpg" alt="Filter press, drying oven, furnace and sieve shaker" loading="lazy"><figcaption>Sample preparation, filtration &amp; drying</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-crushing.jpg" alt="Jaw crusher, pulveriser and sample splitters" loading="lazy"><figcaption>Crushing, milling &amp; sample division</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-test-rig.jpg" alt="Bobo at a metallurgical bench test rig" loading="lazy"><figcaption>Test rigs &amp; bench equipment</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-sample-handling.jpg" alt="Bobo preparing sample trays in a laboratory" loading="lazy"><figcaption>Sample handling &amp; analysis</figcaption></figure>
+                        <figure class="revealable"><img src="mro/met-modular-lab.jpg" alt="Containerised modular laboratory on site" loading="lazy"><figcaption>Modular laboratories</figcaption></figure>
                     </div>
                 </div>
 
@@ -1570,7 +1594,8 @@
                 <a href="#generators">Generators</a>
                 <a href="#ppe">PPE</a>
                 <a href="#lifting">Lifting &amp; Lashing</a>
-                <a href="#metallurgical">Chemicals &amp; Metallurgical</a>
+                <a href="#chemicals">Chemical Reagents</a>
+                <a href="#metallurgical">Metallurgical Services</a>
                 <a href="#contact">Contact</a>
                 <a href="index.html">Ivoire Investment Group</a>
             </nav>
