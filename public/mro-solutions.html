@@ -102,6 +102,10 @@
             max-width: 62ch;
         }
 
+        /* the lede runs at weight 300, against which strong's default "bolder"
+           only resolves to 400, so label runs need an explicit weight */
+        .lede strong { font-weight: 700; color: var(--navy); }
+
         /* body copy is justified across the page; headings, captions, chips and
            buttons keep their own alignment */
         .lede,
@@ -1139,10 +1143,12 @@
         <div class="shell">
             <div class="section-head revealable">
                 <div class="rule"></div>
-                <h2>Five categories supplied across southern africa</h2>
-                <p class="lede">Every line below is supplied on an enquiry basis. Send us the specification
-                    and quantity and our team will come back to you with availability, lead time and a
-                    quotation.</p>
+                <h2>Six categories supplied across southern africa</h2>
+                <p class="lede"><strong>Bulk Orders:</strong> Available upon request. Submit your
+                    specifications to receive a custom quote, lead times, and availability from our
+                    team.</p>
+                <p class="lede"><strong>Retail Purchases:</strong> Visit our physical store in
+                    Ongwediva, Namibia.</p>
             </div>
 
             <!-- ------------------------------------------------ FASTENERS -->
