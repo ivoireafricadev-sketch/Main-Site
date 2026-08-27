@@ -1,0 +1,14 @@
+{
+  "name": "ivoire-investment-group",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for Ivoire Investment Group, plus a Netlify function that copies form leads into Airtable.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npx netlify dev",
+    "deploy": "npx netlify deploy --prod"
+  }
+}

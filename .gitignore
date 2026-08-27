@@ -21,6 +21,8 @@ firebase-debug.*.log
 node_modules/
 .env
 .env.*
+# ...but the placeholder template must ship with the repo
+!.env.example
 
 # Editor and OS noise
 .vscode/
@@ -31,3 +33,6 @@ desktop.ini
 
 # Scratch files used when previewing pages locally
 public/__*.html
+
+# Netlify CLI local state
+.netlify/

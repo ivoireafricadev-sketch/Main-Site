@@ -1,0 +1,20 @@
+# Netlify build + function configuration.
+#
+# The site is plain static HTML, so there is no build command - Netlify just
+# publishes public/ as-is. The only server-side code is the event function in
+# netlify/functions/, which runs after each verified form submission.
+#
+# Publish directory used to be set only in the Netlify UI. Declaring it here
+# keeps it in version control; the UI setting is ignored once this file exists.
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/mro"
+  to = "/mro-solutions.html"
+  status = 301
