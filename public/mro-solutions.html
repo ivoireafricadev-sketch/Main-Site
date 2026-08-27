@@ -737,6 +737,117 @@
            above the footer */
         #contact { background: var(--paper); padding-bottom: 46px; }
 
+        /* lead capture form - the primary enquiry route, with the country
+           cards below it kept for buyers who want a named contact */
+        .lead-form {
+            max-width: 860px;
+            margin: 0 auto 46px;
+            padding: 40px 42px;
+            background: #fff;
+            border: 1px solid var(--paper-edge);
+            border-top: 5px solid var(--gold);
+            border-radius: 14px;
+        }
+
+        .lead-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+        .lead-field { display: flex; flex-direction: column; }
+        .lead-field.full { grid-column: 1 / -1; }
+
+        .lead-field label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .lead-field .req { color: var(--blue); }
+
+        .lead-field input,
+        .lead-field select,
+        .lead-field textarea {
+            font-family: inherit;
+            font-size: 0.92rem;
+            color: var(--ink);
+            background: var(--paper);
+            border: 1px solid var(--paper-edge);
+            border-radius: 6px;
+            padding: 13px 15px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+        }
+
+        .lead-field textarea { resize: vertical; min-height: 132px; line-height: 1.6; }
+
+        .lead-field input::placeholder,
+        .lead-field textarea::placeholder { color: #9aa8b6; }
+
+        .lead-field input:focus,
+        .lead-field select:focus,
+        .lead-field textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(16, 91, 192, .13);
+        }
+
+        .lead-field select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23105BC0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        /* honeypot: reachable to a bot, invisible to a visitor */
+        .lead-hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .lead-actions { margin-top: 28px; }
+
+        button.btn { font-family: inherit; }
+
+        .btn[disabled] { opacity: .55; cursor: default; transform: none; box-shadow: none; }
+
+        .lead-status {
+            display: none;
+            margin: 18px 0 0;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .lead-status.show { display: block; }
+        .lead-status.ok { color: #1c7a3e; }
+        .lead-status.err { color: #b4342a; }
+        .lead-status a { color: var(--blue); }
+
+        .contact-split {
+            max-width: 860px;
+            margin: 0 auto 28px;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        @media (max-width: 700px) {
+            .lead-form { padding: 30px 22px; }
+            .lead-grid { grid-template-columns: 1fr; }
+        }
+
         .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
         .contact-card {
@@ -1500,6 +1611,69 @@
                     time and a quotation.</p>
             </div>
 
+            <form class="lead-form revealable" name="ivoire-mro-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Netlify needs the form name in the body as well as the
+                     attribute, because the AJAX handler below posts to "/". -->
+                <input type="hidden" name="form-name" value="ivoire-mro-leads">
+                <p class="lead-hp">
+                    <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                </p>
+
+                <div class="lead-grid">
+                    <div class="lead-field">
+                        <label for="m-name">Full name <span class="req">*</span></label>
+                        <input id="m-name" name="name" type="text" required autocomplete="name">
+                    </div>
+                    <div class="lead-field">
+                        <label for="m-email">Email address <span class="req">*</span></label>
+                        <input id="m-email" name="email" type="email" required autocomplete="email">
+                    </div>
+                    <div class="lead-field">
+                        <label for="m-phone">Phone</label>
+                        <input id="m-phone" name="phone" type="tel" autocomplete="tel">
+                    </div>
+                    <div class="lead-field">
+                        <label for="m-company">Company</label>
+                        <input id="m-company" name="company" type="text" autocomplete="organization">
+                    </div>
+                    <div class="lead-field">
+                        <label for="m-country">Country <span class="req">*</span></label>
+                        <select id="m-country" name="country" required>
+                            <option value="">Select a country</option>
+                            <option>Namibia</option>
+                            <option>Botswana</option>
+                            <option>Zambia</option>
+                            <option>Zimbabwe</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="lead-field">
+                        <label for="m-service">Product or service <span class="req">*</span></label>
+                        <select id="m-service" name="service" required>
+                            <option value="">Select a category</option>
+                            <option>Fasteners</option>
+                            <option>Industrial Generators</option>
+                            <option>Personal Protective Equipment</option>
+                            <option>Lifting &amp; Lashing Equipment</option>
+                            <option>Chemical Reagents</option>
+                            <option>Metallurgical Services</option>
+                            <option>General MRO enquiry</option>
+                        </select>
+                    </div>
+                    <div class="lead-field full">
+                        <label for="m-message">What do you need? <span class="req">*</span></label>
+                        <textarea id="m-message" name="message" required placeholder="Include quantities, sizes, grades or part numbers where you have them, plus the date you need delivery by."></textarea>
+                    </div>
+                </div>
+
+                <div class="lead-actions">
+                    <button type="submit" class="btn btn-navy">Send Enquiry</button>
+                    <p class="lead-status" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+
+            <p class="contact-split revealable">Or contact your country team directly</p>
+
             <div class="contact-grid">
                 <!-- Namibia -->
                 <div class="contact-card revealable">
@@ -1683,6 +1857,50 @@
             hamburger.setAttribute('aria-expanded', 'false');
             document.querySelectorAll('.has-drop').forEach(function (wrap) {
                 wrap.classList.remove('open');
+            });
+        });
+    });
+
+    /* ---- lead form ----------------------------------------------------
+       Posts to Netlify over AJAX so the buyer keeps their place on the page
+       instead of being bounced to Netlify's generic success screen. With JS
+       off the form still works, falling back to a normal POST. */
+    document.querySelectorAll('form[data-netlify]').forEach(function (form) {
+        var status = form.querySelector('.lead-status');
+        var button = form.querySelector('button[type="submit"]');
+        var buttonLabel = button ? button.textContent : '';
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (button) {
+                button.disabled = true;
+                button.textContent = 'Sending...';
+            }
+            if (status) status.className = 'lead-status';
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(form)).toString()
+            }).then(function (response) {
+                if (!response.ok) throw new Error('Netlify returned ' + response.status);
+
+                form.reset();
+                if (status) {
+                    status.textContent = 'Thank you. Your enquiry is with the team and they will come back to you with availability, lead time and a quotation.';
+                    status.className = 'lead-status show ok';
+                }
+            }).catch(function () {
+                if (status) {
+                    status.innerHTML = 'Sorry, that did not send. Please try again, or email us directly at <a href="mailto:info@ivoireafrica.com">info@ivoireafrica.com</a>.';
+                    status.className = 'lead-status show err';
+                }
+            }).then(function () {
+                if (button) {
+                    button.disabled = false;
+                    button.textContent = buttonLabel;
+                }
             });
         });
     });

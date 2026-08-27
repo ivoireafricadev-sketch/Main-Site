@@ -513,6 +513,135 @@
         }
         .footer { padding-top: 50px; text-align: center; font-size: 14px; }
 
+        /* MRO Solutions is a trading division with its own page, not just one
+           of the six sector cards, so it gets a top-level nav slot in the gold
+           accent instead of living only inside the Sectors dropdown. */
+        .nav a.nav-feature { color: #D4AF37; font-weight: 700; }
+        .nav a.nav-feature:hover { color: #e8c65a; }
+
+        /* ---------------------------------------------------------------
+           Lead capture form
+           --------------------------------------------------------------- */
+        .lead-form {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .lead-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .lead-field { display: flex; flex-direction: column; }
+        .lead-field.full { grid-column: 1 / -1; }
+
+        .lead-field label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 8px;
+        }
+
+        .lead-field .req { color: #D4AF37; }
+
+        .lead-field input,
+        .lead-field select,
+        .lead-field textarea {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            color: #FFFFFF;
+            background-color: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 14px 15px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .lead-field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+        .lead-field input::placeholder,
+        .lead-field textarea::placeholder { color: #666; }
+
+        .lead-field input:focus,
+        .lead-field select:focus,
+        .lead-field textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+
+        /* native select arrows render near-black on a near-black control, so
+           the chevron is drawn in as a background image instead */
+        .lead-field select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        .lead-field select option { background-color: #0f0f0f; color: #FFFFFF; }
+
+        /* honeypot: must stay in the DOM and reachable to the bot, but never
+           visible or focusable for a real visitor */
+        .lead-hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .lead-actions { margin-top: 28px; text-align: center; }
+
+        button.email-button {
+            font-family: 'Montserrat', sans-serif;
+            border: 0;
+            cursor: pointer;
+        }
+
+        button.email-button[disabled] {
+            opacity: 0.55;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .lead-status {
+            display: none;
+            margin: 20px auto 0;
+            max-width: 520px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .lead-status.show { display: block; }
+        .lead-status.ok { color: #86d492; }
+        .lead-status.err { color: #ef9080; }
+        .lead-status a { color: #D4AF37; }
+
+        .lead-alt {
+            margin: 26px 0 0;
+            font-size: 14px;
+            font-weight: 300;
+            color: #999;
+        }
+
+        .lead-alt a { color: #D4AF37; text-decoration: none; }
+        .lead-alt a:hover { text-decoration: underline; }
+
 
         /* Scroll Reveal Animations */
         .revealable {
@@ -544,6 +673,13 @@
         @media (max-width: 1330px) {
             .hero-industries small { font-size: 0.78rem; letter-spacing: 1.5px; }
             .hero-industries .separator { margin: 0 9px; }
+        }
+
+        /* six top-level nav items only just clear the logo above the hamburger
+           breakpoint, so tighten the spacing rather than let them wrap */
+        @media (max-width: 1100px) and (min-width: 769px) {
+            .nav a,
+            .nav-trigger { margin-left: 17px; font-size: 0.93rem; }
         }
 
         @media (max-width: 1200px) {
@@ -689,6 +825,9 @@
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
             .sectors-grid-6 { grid-template-columns: 1fr; }
+            .lead-grid { grid-template-columns: 1fr; }
+            .lead-form { max-width: 100%; }
+            button.email-button { width: 100%; }
 
         }
     </style>
@@ -718,6 +857,7 @@
                 </div>
             </div>
 
+            <a class="nav-feature" href="mro-solutions.html">MRO Solutions</a>
             <a href="#presence">Presence</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -830,7 +970,70 @@
         <section id="contact" class="has-watermark">
             <h1 class="revealable">Contact Us</h1>
             <p class="contact-intro revealable">For investment opportunities, partnership inquiries, and operational details, please reach out to our executive team directly.</p>
-            <a href="mailto:info@ivoireafrica.com?subject=Investment%20Inquiry%20-%20Ivoire%20Group" class="email-button revealable">Email Our Team</a>
+
+            <form class="lead-form revealable" name="ivoire-group-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Netlify needs the form name in the body as well as the
+                     attribute, because the AJAX handler below posts to "/". -->
+                <input type="hidden" name="form-name" value="ivoire-group-leads">
+                <p class="lead-hp">
+                    <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                </p>
+
+                <div class="lead-grid">
+                    <div class="lead-field">
+                        <label for="g-name">Full name <span class="req">*</span></label>
+                        <input id="g-name" name="name" type="text" required autocomplete="name">
+                    </div>
+                    <div class="lead-field">
+                        <label for="g-email">Email address <span class="req">*</span></label>
+                        <input id="g-email" name="email" type="email" required autocomplete="email">
+                    </div>
+                    <div class="lead-field">
+                        <label for="g-phone">Phone</label>
+                        <input id="g-phone" name="phone" type="tel" autocomplete="tel">
+                    </div>
+                    <div class="lead-field">
+                        <label for="g-company">Company</label>
+                        <input id="g-company" name="company" type="text" autocomplete="organization">
+                    </div>
+                    <div class="lead-field">
+                        <label for="g-country">Country</label>
+                        <select id="g-country" name="country">
+                            <option value="">Select a country</option>
+                            <option>Namibia</option>
+                            <option>Botswana</option>
+                            <option>Zambia</option>
+                            <option>Zimbabwe</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="lead-field">
+                        <label for="g-service">Service of interest <span class="req">*</span></label>
+                        <select id="g-service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option>Business Consulting</option>
+                            <option>MRO Solutions</option>
+                            <option>Livestock Management</option>
+                            <option>Distribution</option>
+                            <option>Construction</option>
+                            <option>Hospitality</option>
+                            <option>General enquiry</option>
+                        </select>
+                    </div>
+                    <div class="lead-field full">
+                        <label for="g-message">How can we help? <span class="req">*</span></label>
+                        <textarea id="g-message" name="message" required placeholder="Tell us about your project, requirements or timeline."></textarea>
+                    </div>
+                </div>
+
+                <div class="lead-actions">
+                    <button type="submit" class="email-button">Send Enquiry</button>
+                    <p class="lead-status" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+
+            <p class="lead-alt revealable">Prefer email? Write to <a href="mailto:info@ivoireafrica.com?subject=Investment%20Inquiry%20-%20Ivoire%20Group">info@ivoireafrica.com</a></p>
+
             <div class="footer">
                 <p>&copy; 2022 Ivoire Investment Group. All rights reserved.</p>
             </div>
@@ -881,6 +1084,52 @@
           document.querySelectorAll(".has-drop.open").forEach(wrap => {
               wrap.classList.remove("open");
               wrap.querySelector(".nav-trigger").setAttribute("aria-expanded", "false");
+          });
+      });
+
+      /* ---- lead form ----------------------------------------------------
+         Posts to Netlify over AJAX so the visitor keeps their place on the
+         page instead of being bounced to Netlify's generic success screen.
+         Without JS the form still works: it falls back to a normal POST. */
+      document.querySelectorAll('form[data-netlify]').forEach(form => {
+          const status = form.querySelector('.lead-status');
+          const button = form.querySelector('button[type="submit"]');
+          const buttonLabel = button ? button.textContent : '';
+
+          form.addEventListener('submit', async e => {
+              e.preventDefault();
+
+              if (button) {
+                  button.disabled = true;
+                  button.textContent = 'Sending...';
+              }
+              if (status) status.className = 'lead-status';
+
+              try {
+                  const response = await fetch('/', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                      body: new URLSearchParams(new FormData(form)).toString()
+                  });
+
+                  if (!response.ok) throw new Error('Netlify returned ' + response.status);
+
+                  form.reset();
+                  if (status) {
+                      status.textContent = 'Thank you. Your enquiry has been sent and our team will be in touch shortly.';
+                      status.className = 'lead-status show ok';
+                  }
+              } catch (err) {
+                  if (status) {
+                      status.innerHTML = 'Sorry, that did not send. Please try again, or email us directly at <a href="mailto:info@ivoireafrica.com">info@ivoireafrica.com</a>.';
+                      status.className = 'lead-status show err';
+                  }
+              } finally {
+                  if (button) {
+                      button.disabled = false;
+                      button.textContent = buttonLabel;
+                  }
+              }
           });
       });
 
