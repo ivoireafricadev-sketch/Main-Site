@@ -1,11 +1,16 @@
 # Client source material dropped in the project root (brochures, signboard
 # artwork, scope documents). These are working references, not site files.
-# Root level only, so public/ assets and docs/client-briefs/ stay tracked.
+# Root level only, so public/ assets stay tracked.
 /*.pdf
 /*.docx
 /*.doc
 /*.pptx
 /*.xlsx
+
+# The client's internal change briefs. Untracked deliberately: this repo is
+# public, and these are private correspondence naming an individual. Keep
+# local copies for reference, but they must not ship with the source.
+docs/client-briefs/
 
 # Raw client media dropped in the root (Google Drive exports keep their
 # timestamped folder names). The processed copies live in public/mro/.
