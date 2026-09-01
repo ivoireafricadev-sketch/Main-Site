@@ -1865,7 +1865,11 @@
        Posts to Netlify over AJAX so the buyer keeps their place on the page
        instead of being bounced to Netlify's generic success screen. With JS
        off the form still works, falling back to a normal POST. */
-    document.querySelectorAll('form[data-netlify]').forEach(function (form) {
+    /* Select on .lead-form, NOT [data-netlify]: Netlify consumes the
+       data-netlify attribute during build-time form detection and strips it
+       from the served HTML, so an attribute selector matches nothing in
+       production and the form silently falls back to a full-page POST. */
+    document.querySelectorAll('form.lead-form').forEach(function (form) {
         var status = form.querySelector('.lead-status');
         var button = form.querySelector('button[type="submit"]');
         var buttonLabel = button ? button.textContent : '';
