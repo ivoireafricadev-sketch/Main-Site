@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Service Temporarily Unavailable</title>
+    <meta name="description" content="This site is temporarily unavailable.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --fg: #ffffff;
+            --muted: #a3a3a3;
+            --line: #333333;
+            --panel: rgba(255, 255, 255, 0.03);
+            --accent: #c9a227;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body { height: 100%; }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 560px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: 14px;
+            padding: 48px 40px;
+            text-align: left;
+        }
+
+        .status {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            line-height: 1.15;
+            margin: 0 0 18px;
+        }
+
+        p {
+            color: var(--muted);
+            margin: 0 0 16px;
+            font-size: 1rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--line);
+            border: none;
+            margin: 32px 0;
+        }
+
+        .contact-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--fg);
+            margin-bottom: 10px;
+        }
+
+        .contact a {
+            color: var(--fg);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1px;
+        }
+
+        .contact a:hover { color: var(--accent); }
+
+        .ref {
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main">
+        <span class="status">Service Suspended</span>
+        <h1>This service is temporarily unavailable.</h1>
+        <p>
+            Access to this site has been suspended because the account is past
+            due. Service will be restored promptly once the outstanding balance
+            has been settled.
+        </p>
+        <p>
+            To restore access, please settle the outstanding balance with your
+            account manager.
+        </p>
+
+        <hr class="divider" />
+
+        <p class="ref">HTTP 403 &middot; Account past due</p>
+    </main>
+</body>
+</html>
