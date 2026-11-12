@@ -14,6 +14,18 @@
 [functions]
   node_bundler = "esbuild"
 
+# --- ACCOUNT SUSPENSION GATE -------------------------------------------------
+# While this block is present, every request is served the suspension page with
+# an HTTP 403. This is a deliberate hold for a past-due account, not an outage.
+# TO RESTORE THE SITE: delete this single [[redirects]] block and redeploy.
+# (Leave the /mro rule below in place.)
+[[redirects]]
+  from = "/*"
+  to = "/suspended.html"
+  status = 403
+  force = true
+# --- END SUSPENSION GATE -----------------------------------------------------
+
 [[redirects]]
   from = "/mro"
   to = "/mro-solutions.html"
